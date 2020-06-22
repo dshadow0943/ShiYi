@@ -1,4 +1,4 @@
-package com.example.lsj.mvpdemo.view;
+package com.example.lsj.mvpdemo.view.activity;
 
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +23,12 @@ public class SingleInterfaceActivity extends BaseMVPActivity<SingleInterfacePres
     private TextView textView;
 
     @Override
+    protected int initView() {
+        return R.layout.activity_single_interface;
+    }
+
+    @Override
     protected void init() {
-        setContentView(R.layout.activity_single_interface);
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
 

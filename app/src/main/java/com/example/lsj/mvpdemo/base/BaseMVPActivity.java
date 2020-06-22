@@ -15,9 +15,12 @@ public abstract class BaseMVPActivity<T extends IPresenter> extends AppCompatAct
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(initView());
         initPresenter();
         init();
     }
+
+    protected abstract int initView();
 
     protected void initPresenter() {
         mPresenter = createPresenter();

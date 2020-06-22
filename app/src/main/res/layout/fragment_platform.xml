@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".view.activity.SingleInterfaceActivity">
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="点击" />
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/item_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:text="请点击上方按钮获取数据" />
+        android:layout_margin="@dimen/text_margin"
+        android:text="论坛"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem" />
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.lsj.mvpdemo.view;
+package com.example.lsj.mvpdemo.view.activity;
 
 import android.view.View;
 import android.widget.Button;
@@ -30,10 +30,13 @@ public class MultipleInterfaceActivity extends BaseMVPActivity<MultiplePresenter
     private SingleInterfacePresenter singleInterfacePresenter;
     private MultipleInterfacePresenter multipleInterfacePresenter;
 
+    @Override
+    protected int initView() {
+        return R.layout.activity_multiple_interface;
+    }
 
     @Override
     protected void init() {
-        setContentView(R.layout.activity_multiple_interface);
 
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
@@ -44,7 +47,6 @@ public class MultipleInterfaceActivity extends BaseMVPActivity<MultiplePresenter
                 singleInterfacePresenter.getData(0);
             }
         });
-
 
         btn = findViewById(R.id.btn);
         tv = findViewById(R.id.tv);
