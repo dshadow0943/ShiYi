@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 
 import com.example.lsj.mvpdemo.R;
 
-public class MineFragment extends Fragment {
+
+public class WorksFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -17,16 +19,13 @@ public class MineFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public MineFragment() {
+    public WorksFragment() {
         // Required empty public constructor
     }
 
-    public static MineFragment newInstance(String param1, String param2) {
-        MineFragment fragment = new MineFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+    // TODO: Rename and change types and number of parameters
+    public static WorksFragment newInstance() {
+        WorksFragment fragment = new WorksFragment();
         return fragment;
     }
 
@@ -42,7 +41,6 @@ public class MineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.fragment_mine, container, false);
+        return inflater.inflate(R.layout.fragment_works_list, container, false);
     }
 }

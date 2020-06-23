@@ -1,22 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/item_number"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="词库"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="212dp"
+            android:layout_height="32dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:background="#2222ff">
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/poetry_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="#ffffff"
+
+                app:tl_divider_color="#6565F1"
+                app:tl_divider_padding="@android:dimen/app_icon_size"
+                app:tl_divider_width="2dp"
+
+                app:tl_indicator_color="#6565F1"
+                app:tl_indicator_corner_radius="1dp"
+                app:tl_indicator_height="31dp"
+                app:tl_indicator_style="NORMAL"
+                app:tl_indicator_width="71dp"
+                app:tl_indicator_width_equal_title="true"
+
+                app:tl_tab_width="70dp"
+                app:tl_textSelectColor="#ffffff"
+                app:tl_textUnselectColor="#6565F1"
+                app:tl_textsize="14sp"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+
+        <ImageButton
+            android:id="@+id/poetry_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#FFFFFF"
+            android:src="@android:drawable/ic_menu_search"
+            android:visibility="visible"
+            tools:src="@android:drawable/ic_search_category_default"
+            tools:visibility="gone" />
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="#BAB3B3" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/poetry_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 </LinearLayout>

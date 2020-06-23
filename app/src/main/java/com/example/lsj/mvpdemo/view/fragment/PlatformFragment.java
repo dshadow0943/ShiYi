@@ -1,20 +1,12 @@
 package com.example.lsj.mvpdemo.view.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lsj.mvpdemo.R;
-import com.example.lsj.mvpdemo.view.fragment.dummy.DummyContent;
-import com.example.lsj.mvpdemo.view.fragment.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 public class PlatformFragment extends Fragment {
 

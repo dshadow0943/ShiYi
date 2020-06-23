@@ -1,36 +1,46 @@
 package com.example.lsj.mvpdemo.view.fragment;
 
-import android.content.Context;
+import android.app.ActionBar;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lsj.mvpdemo.R;
-import com.example.lsj.mvpdemo.view.fragment.dummy.DummyContent;
-import com.example.lsj.mvpdemo.view.fragment.dummy.DummyContent.DummyItem;
+import com.example.lsj.mvpdemo.adapter.PoetryLibraryApapter;
+import com.flyco.tablayout.SlidingTabLayout;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 
 public class PoetryLibraryFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
+    private static final String ARG_COLUMN_COUNT = "poetry-count";
     private int mColumnCount = 1;
 
-    public PoetryLibraryFragment() {
-    }
+    private String[] tabText = new String[]{"分类", "作品", "作者"};
+    //未选中icon
+    private int[] normalIcon = {R.drawable.ic_launcher_background, R.drawable.ic_launcher_background, R.drawable.ic_launcher_background};
+    //选中时icon
+    private int[] selectIcon = {R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground};
 
-    public static PoetryLibraryFragment newInstance(int columnCount) {
+    private List<Fragment> fragments = new ArrayList<>();
+
+    private SlidingTabLayout mTab;
+    private ViewPager mVp;
+
+
+    public static PoetryLibraryFragment newInstance() {
         PoetryLibraryFragment fragment = new PoetryLibraryFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -46,8 +56,32 @@ public class PoetryLibraryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_poetry_library, container, false);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ActionBar actionBar = Objects.requireNonNull(getActivity()).getActionBar();
+        Log.e("TAG", "actionBar: "+actionBar);
+        if (actionBar != null){
+            actionBar.hide();
+        }
+        mTab = view.findViewById(R.id.poetry_tab);
+        mVp = view.findViewById(R.id.poetry_vp);
+        configViews();
+
+    }
+
+    public void configViews() {
+        fragments.add(ClassificationFragment.newInstance());
+        fragments.add(WorksFragment.newInstance());
+        fragments.add(AuthorFragment.newInstance());
+
+        PoetryLibraryApapter pagerAdapter = new PoetryLibraryApapter(getChildFragmentManager(), fragments, getActivity());
+        mVp.setAdapter(pagerAdapter);
+        mTab.setViewPager(mVp, tabText);//tab和ViewPager进行关联
     }
 
 }

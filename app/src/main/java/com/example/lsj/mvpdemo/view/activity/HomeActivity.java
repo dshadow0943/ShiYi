@@ -1,14 +1,11 @@
 package com.example.lsj.mvpdemo.view.activity;
 
 import android.graphics.Color;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatDialogFragment;
+import androidx.fragment.app.Fragment;
 import android.view.View;
 
 import com.example.lsj.mvpdemo.R;
-import com.example.lsj.mvpdemo.base.BaseMVPActivity;
+import com.example.lsj.mvpdemo.base.BaseActivity;
 import com.example.lsj.mvpdemo.contract.HomeContract;
 import com.example.lsj.mvpdemo.presenter.HomePresenter;
 import com.example.lsj.mvpdemo.view.fragment.AppreciateFragment;
@@ -21,11 +18,11 @@ import com.next.easynavigation.view.EasyNavigationBar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends BaseMVPActivity<HomePresenter> implements HomeContract.View {
+public class HomeActivity extends BaseActivity<HomePresenter> implements HomeContract.View {
 
-    EasyNavigationBar navigationBar;
+    private EasyNavigationBar navigationBar;
 
-    private String[] tabText;
+    private String[] tabText = new String[]{"鉴赏", "论坛", "词库", "我的"};
     //未选中icon
     private int[] normalIcon = {R.drawable.ic_launcher_background, R.drawable.ic_launcher_background, R.drawable.ic_launcher_background, R.drawable.ic_launcher_background};
     //选中时icon
@@ -53,9 +50,8 @@ public class HomeActivity extends BaseMVPActivity<HomePresenter> implements Home
     public void configViews() {
         fragments.add(AppreciateFragment.newInstance(1));
         fragments.add(PlatformFragment.newInstance(2));
-        fragments.add(PoetryLibraryFragment.newInstance(3));
+        fragments.add(PoetryLibraryFragment.newInstance());
         fragments.add(MineFragment.newInstance("", ""));
-        tabText = new String[]{"鉴赏", "论坛", "词库", "我的"};
         navigationBar.titleItems(tabText) //必传  Tab文字集合
                 .normalIconItems(normalIcon) //必传  Tab未选中图标集合
                 .selectIconItems(selectIcon) //必传  Tab选中图标集合

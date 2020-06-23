@@ -8,23 +8,4 @@
     android:orientation="vertical"
     tools:context=".view.MainActivity">
 
-    <Button
-        android:id="@+id/btn_singl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="单页面单网络请求" />
-
-    <Button
-        android:id="@+id/btn_mul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:text="单页面多网络请求" />
-
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:text="开始" />
 </LinearLayout>

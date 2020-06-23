@@ -2,13 +2,14 @@ package com.example.lsj.mvpdemo.base;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lsj.mvpdemo.presenter.IPresenter;
 import com.example.lsj.mvpdemo.view.IView;
 
-public abstract class BaseMVPActivity<T extends IPresenter> extends AppCompatActivity implements IView {
+public abstract class BaseActivity<T extends IPresenter> extends AppCompatActivity implements IView {
 
     protected T mPresenter;
 
@@ -16,6 +17,10 @@ public abstract class BaseMVPActivity<T extends IPresenter> extends AppCompatAct
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(initView());
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.hide();
+        }
         initPresenter();
         init();
     }
