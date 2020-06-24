@@ -1,44 +1,35 @@
 package com.example.lsj.mvpdemo.view.fragment;
 
-import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvpdemo.base.BaseFragment;
+import com.example.lsj.mvpdemo.contract.AppreciateContract;
+import com.example.lsj.mvpdemo.presenter.AppreciatePresenter;
+
+public class AppreciateFragment extends BaseFragment<AppreciatePresenter> implements AppreciateContract.View {
 
 
-public class AppreciateFragment extends Fragment {
-
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    private int mColumnCount = 3;
-
-    public AppreciateFragment() {
-    }
-
-    public static AppreciateFragment newInstance(int columnCount) {
-        AppreciateFragment fragment = new AppreciateFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
+    public static AppreciateFragment newInstance() {
+        return new AppreciateFragment();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
+    protected int getViewId() {
+        return R.layout.fragment_appreciate;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void bindinLayout() {
 
-        return inflater.inflate(R.layout.fragment_appreciate, container, false);
+    }
+
+    @Override
+    protected AppreciatePresenter createPresenter() {
+        return new AppreciatePresenter();
+    }
+
+    @Override
+    protected void init() {
+
     }
 
 }

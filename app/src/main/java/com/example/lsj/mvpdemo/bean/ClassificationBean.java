@@ -3,8 +3,21 @@ package com.example.lsj.mvpdemo.bean;
 public class ClassificationBean {
 
     private String id;
+    private String imgId;
     private String name;
-    private String content;
+
+    public ClassificationBean(String imgId, String name) {
+        this.imgId = imgId;
+        this.name = name;
+    }
+
+    public String getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(String imgId) {
+        this.imgId = imgId;
+    }
 
     public String getId() {
         return id;
@@ -22,11 +35,4 @@ public class ClassificationBean {
         this.name = name;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }

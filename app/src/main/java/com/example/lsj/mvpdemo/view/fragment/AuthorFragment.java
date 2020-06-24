@@ -1,51 +1,35 @@
 package com.example.lsj.mvpdemo.view.fragment;
 
-import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvpdemo.base.BaseFragment;
+import com.example.lsj.mvpdemo.contract.AuthorContract;
+import com.example.lsj.mvpdemo.presenter.AuthorPresenter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AuthorFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class AuthorFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class AuthorFragment extends BaseFragment<AuthorPresenter> implements AuthorContract.View {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AuthorFragment() {
-        // Required empty public constructor
-    }
-
-
-    public static AuthorFragment newInstance() {
-        AuthorFragment fragment = new AuthorFragment();
-        return fragment;
+    public static Fragment newInstance(){
+        return new AuthorFragment();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    protected int getViewId() {
+        return R.layout.fragment_author_list;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_author_list, container, false);
+    protected void bindinLayout() {
+
+    }
+
+    @Override
+    protected AuthorPresenter createPresenter() {
+        return new AuthorPresenter();
+    }
+
+    @Override
+    protected void init() {
+
     }
 }

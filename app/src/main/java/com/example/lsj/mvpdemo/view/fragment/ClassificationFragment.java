@@ -1,72 +1,47 @@
 package com.example.lsj.mvpdemo.view.fragment;
 
-
-import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lsj.mvpdemo.R;
-import com.example.lsj.mvpdemo.adapter.ClassificationAdapter;
+import com.example.lsj.mvpdemo.adapter.ClassificationItemAdapter;
+import com.example.lsj.mvpdemo.base.BaseFragment;
+import com.example.lsj.mvpdemo.bean.ClassificationBean;
 import com.example.lsj.mvpdemo.bean.ClassificationItem;
+import com.example.lsj.mvpdemo.contract.ClassificationContract;
+import com.example.lsj.mvpdemo.presenter.ClassificationPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassificationFragment extends Fragment {
-
-    private static final String ARG_COLUMN_COUNT = "cft-count";
-
-    private int mColumnCount = 1;
+public class ClassificationFragment extends BaseFragment<ClassificationPresenter> implements ClassificationContract.View {
 
     private RecyclerView recyclerView;
-    private ClassificationAdapter cftAdaptr;
+    private ClassificationItemAdapter cftAdaptr;
     private List<ClassificationItem> cfts;
 
-    public static ClassificationFragment newInstance() {
-        ClassificationFragment fragment = new ClassificationFragment();
-        return fragment;
+    public static Fragment newInstance() {
+        return new ClassificationFragment();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
+    protected int getViewId() {
+        return R.layout.fragment_classification_list;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_classification_list, container, false);
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    protected void bindinLayout() {
         recyclerView = view.findViewById(R.id.cft);
-        Log.e("TAG", "onViewCreated: ");
-        init();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
+    protected ClassificationPresenter createPresenter() {
+        return new ClassificationPresenter();
     }
 
-    private void init(){
+    @Override
+    protected void init(){
         cfts = new ArrayList<>();
         cfts.add(new ClassificationItem("选集"));
         cfts.add(new ClassificationItem("主题"));
@@ -79,21 +54,16 @@ public class ClassificationFragment extends Fragment {
         cfts.add(new ClassificationItem("地理"));
         cfts.add(new ClassificationItem("用典"));
 
+        for (ClassificationItem l : cfts){
+            for (int i = 0; i < 20; i++) {
+                l.getCfts().add(new ClassificationBean("R.drawable/ic_lock_idle_lock", "词名"));
+            }
+        }
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        cftAdaptr = new ClassificationAdapter(cfts);
+        cftAdaptr = new ClassificationItemAdapter(cfts);
         recyclerView.setAdapter(cftAdaptr);
-
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
 }

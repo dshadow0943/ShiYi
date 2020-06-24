@@ -1,8 +1,9 @@
 package com.example.lsj.mvpdemo.view.activity;
 
 import android.graphics.Color;
-import androidx.fragment.app.Fragment;
 import android.view.View;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.lsj.mvpdemo.R;
 import com.example.lsj.mvpdemo.base.BaseActivity;
@@ -32,8 +33,13 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
 
 
     @Override
-    protected int initView() {
+    protected int getViewId() {
         return R.layout.activity_home;
+    }
+
+    @Override
+    protected void bindinLayout() {
+        navigationBar = findViewById(R.id.navigationBar);
     }
 
     @Override
@@ -43,13 +49,12 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
 
     @Override
     protected void init() {
-        navigationBar = findViewById(R.id.navigationBar);
         configViews();
     }
 
     public void configViews() {
-        fragments.add(AppreciateFragment.newInstance(1));
-        fragments.add(PlatformFragment.newInstance(2));
+        fragments.add(AppreciateFragment.newInstance());
+        fragments.add(PlatformFragment.newInstance());
         fragments.add(PoetryLibraryFragment.newInstance());
         fragments.add(MineFragment.newInstance("", ""));
         navigationBar.titleItems(tabText) //必传  Tab文字集合
@@ -71,5 +76,4 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
                 .anim(Anim.ZoomInUp)
                 .build();
     }
-
 }

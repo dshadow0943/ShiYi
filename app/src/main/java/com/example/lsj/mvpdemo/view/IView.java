@@ -7,4 +7,5 @@ package com.example.lsj.mvpdemo.view;
  * @Time: 2018/11/22 17:26
  */
 public interface IView {
+
 }

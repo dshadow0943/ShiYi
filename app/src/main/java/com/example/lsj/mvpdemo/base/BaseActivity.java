@@ -16,16 +16,31 @@ public abstract class BaseActivity<T extends IPresenter> extends AppCompatActivi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(initView());
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
-            actionBar.hide();
-        }
+        setContentView(getViewId());
+        statusBarSetting();
+        bindinLayout();
         initPresenter();
         init();
     }
 
-    protected abstract int initView();
+    //创建一个Presenter
+    protected abstract T createPresenter();
+
+    //绑定布局控件
+    protected abstract void bindinLayout();
+
+    //获取ViewId
+    protected abstract int getViewId();
+
+    protected abstract void init();
+
+   //状态栏导航栏设置
+    protected void statusBarSetting(){
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.hide();
+        }
+    }
 
     protected void initPresenter() {
         mPresenter = createPresenter();
@@ -42,14 +57,5 @@ public abstract class BaseActivity<T extends IPresenter> extends AppCompatActivi
         }
         super.onDestroy();
     }
-
-    /**
-     * 创建一个Presenter
-     *
-     * @return
-     */
-    protected abstract T createPresenter();
-
-    protected abstract void init();
 
 }
