@@ -2,19 +2,20 @@ package com.example.lsj.mvpdemo.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-public class PoetryLibraryApapter extends FragmentPagerAdapter {
+public class PoetryLibraryPagerApapter extends FragmentPagerAdapter {
 
     private Context context;
     private List<Fragment> listfragment;
 //    private List<String> tlabText;
 
-    public PoetryLibraryApapter(FragmentManager fm, List<Fragment> listfragment, Activity activity) {
+    public PoetryLibraryPagerApapter(FragmentManager fm, List<Fragment> listfragment, Activity activity) {
         super(fm);
         this.listfragment = listfragment;
         this.context = activity;

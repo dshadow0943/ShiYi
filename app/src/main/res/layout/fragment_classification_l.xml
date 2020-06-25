@@ -2,21 +2,21 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="80dp"
-    android:layout_height="80dp"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
     android:gravity="center">
 
     <ImageView
         android:id="@+id/cft_list_img"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:textAlignment="center"
         android:src="@android:drawable/ic_lock_idle_lock"
         android:gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/cft_list_name"
-        android:layout_width="60dp"
+        android:layout_width="80dp"
         android:layout_height="20dp"
         android:gravity="center"
         android:text="诗名"/>

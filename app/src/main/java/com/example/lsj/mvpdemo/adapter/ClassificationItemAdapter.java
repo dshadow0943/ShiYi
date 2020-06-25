@@ -1,9 +1,7 @@
 package com.example.lsj.mvpdemo.adapter;
 
 import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,39 +15,33 @@ import com.example.lsj.mvpdemo.bean.ClassificationItem;
 
 import java.util.List;
 
-public class ClassificationItemAdapter extends RecyclerView.Adapter<ClassificationItemAdapter.ViewHolder> {
-
-    private View view;
-    private List<ClassificationItem> cfts;
+public class ClassificationItemAdapter extends baseAdapter<ClassificationItem, ClassificationItemAdapter.ViewHolder> {
 
     public ClassificationItemAdapter(List<ClassificationItem> cfts) {
-        this.cfts = cfts;
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.fragment_classification, viewGroup, false);
-        return new ViewHolder(view);
+        super(cfts);
     }
 
     @SuppressLint("WrongConstant")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.title.setText(cfts.get(i).getName());
+        viewHolder.title.setText(tList.get(i).getName());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         layoutManager.setOrientation(OrientationHelper.HORIZONTAL);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 3, OrientationHelper.HORIZONTAL, false);
         viewHolder.recyclerView.setLayoutManager(gridLayoutManager);
-        viewHolder.recyclerView.setAdapter(new ClassificationAdapter(cfts.get(i).getCfts()));
+        viewHolder.recyclerView.setAdapter(new ClassificationAdapter(tList.get(i).getCfts()));
 
     }
 
     @Override
-    public int getItemCount() {
-        return cfts.size();
+    protected int getViewId() {
+        return R.layout.fragment_classification;
+    }
+
+    @Override
+    protected ViewHolder getmVH(View view) {
+        return new ViewHolder(view);
     }
 
     public class  ViewHolder extends RecyclerView.ViewHolder {
@@ -63,5 +55,4 @@ public class ClassificationItemAdapter extends RecyclerView.Adapter<Classificati
             recyclerView = view.findViewById(R.id.cft_list);
         }
     }
-
 }

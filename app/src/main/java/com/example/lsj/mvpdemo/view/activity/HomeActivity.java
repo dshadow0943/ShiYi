@@ -25,9 +25,9 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
 
     private String[] tabText = new String[]{"鉴赏", "论坛", "词库", "我的"};
     //未选中icon
-    private int[] normalIcon = {R.drawable.ic_launcher_background, R.drawable.ic_launcher_background, R.drawable.ic_launcher_background, R.drawable.ic_launcher_background};
+    private int[] normalIcon = {R.drawable.ic_home_appreciate_w_28dp, R.drawable.ic_home_platform_w_28dp, R.drawable.ic_home_poetrylibrary_w_28dp, R.drawable.ic_home_mine_w_28dp};
     //选中时icon
-    private int[] selectIcon = {R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground};
+    private int[] selectIcon = {R.drawable.ic_home_appreciate_b_28dp, R.drawable.ic_home_platfrom_b_28dp, R.drawable.ic_home_poetrylibrary_b_28dp, R.drawable.ic_home_mine_b_28dp};
 
     private List<Fragment> fragments = new ArrayList<>();
 
@@ -61,7 +61,7 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
                 .normalIconItems(normalIcon) //必传  Tab未选中图标集合
                 .selectIconItems(selectIcon) //必传  Tab选中图标集合
                 .normalTextColor(Color.parseColor("#8a8a8a"))   //Tab未选中时字体颜色
-                .selectTextColor(Color.parseColor("#BA6BC6"))   //Tab选中时字体颜色
+                .selectTextColor(Color.parseColor("#7C99FF"))   //Tab选中时字体颜色
                 .onTabClickListener(new EasyNavigationBar.OnTabClickListener() {
                     @Override
                     public boolean onTabClickEvent(View view, int position) {

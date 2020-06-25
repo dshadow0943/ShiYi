@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.PoetryListActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_above="@id/split_line"
+        android:layout_marginBottom="-40dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:text="返回"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:text="更多"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/split_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="60dp"
+        android:background="#BAB3B3" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/porty_list_rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/split_line"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/p_list_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_home_appreciate_w_28dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/p_list_img"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/p_list_name"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:text="分类名"/>
+
+            <TextView
+                android:id="@+id/p_list_synopsis"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="14dp"
+                android:text="简介"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/split_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/porty_list_rel"
+        android:background="#C4C4C4" />
+
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/poetry_list_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/porty_list_rel"
+        app:tl_iconVisible="false"
+        app:tl_divider_color="#000000"
+        app:tl_underline_color="#000000"
+
+        app:tl_textSelectColor="#7C99FF"
+        app:tl_textUnselectColor="#444444"
+
+        />
+
+    <TextView
+        android:id="@+id/split_line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/poetry_list_tab"
+        android:background="#C4C4C4" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/poetry_list_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/poetry_list_tab"/>
+
+</RelativeLayout>

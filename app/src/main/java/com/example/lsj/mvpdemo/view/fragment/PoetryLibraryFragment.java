@@ -3,18 +3,19 @@ package com.example.lsj.mvpdemo.view.fragment;
 import android.app.ActionBar;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.lsj.mvpdemo.R;
-import com.example.lsj.mvpdemo.adapter.PoetryLibraryApapter;
+import com.example.lsj.mvpdemo.adapter.PoetryLibraryPagerApapter;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ public class PoetryLibraryFragment extends Fragment {
         fragments.add(WorksFragment.newInstance());
         fragments.add(AuthorFragment.newInstance());
 
-        PoetryLibraryApapter pagerAdapter = new PoetryLibraryApapter(getChildFragmentManager(), fragments, getActivity());
+        PoetryLibraryPagerApapter pagerAdapter = new PoetryLibraryPagerApapter(getChildFragmentManager(), fragments, getActivity());
         mVp.setAdapter(pagerAdapter);
         mTab.setViewPager(mVp, tabText);//tab和ViewPager进行关联
     }
