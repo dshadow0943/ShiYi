@@ -7,14 +7,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lsj.mvpdemo.base.BaseFragment;
+
 import java.util.List;
 
-public abstract class baseAdapter<T, V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
+public abstract class BaseAdapter<T, V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
 
     protected List<T> tList;
     protected View view;
+    protected BaseFragment context;
 
-    public baseAdapter(List<T> tList) {
+    public BaseAdapter(BaseFragment context, List<T> tList ) {
+        this.context = context;
         this.tList = tList;
     }
 

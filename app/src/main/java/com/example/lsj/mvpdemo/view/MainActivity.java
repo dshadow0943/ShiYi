@@ -7,7 +7,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lsj.mvpdemo.R;
-import com.example.lsj.mvpdemo.view.activity.PoetryListActivity;
+import com.example.lsj.mvpdemo.view.activity.HomeActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         if (actionBar != null){
             actionBar.hide();
         }
-        startActivity(new Intent(MainActivity.this, PoetryListActivity.class));
+        startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
     }
 }

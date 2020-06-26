@@ -3,19 +3,19 @@ package com.example.lsj.mvpdemo.bean;
 public class ClassificationBean {
 
     private String id;
-    private String imgId;
+    private int imgId;
     private String name;
 
-    public ClassificationBean(String imgId, String name) {
+    public ClassificationBean(int imgId, String name) {
         this.imgId = imgId;
         this.name = name;
     }
 
-    public String getImgId() {
+    public int getImgId() {
         return imgId;
     }
 
-    public void setImgId(String imgId) {
+    public void setImgId(int imgId) {
         this.imgId = imgId;
     }
 

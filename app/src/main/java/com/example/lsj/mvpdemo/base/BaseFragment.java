@@ -45,6 +45,10 @@ public abstract class BaseFragment<T extends IPresenter> extends Fragment implem
 
     protected abstract void init();
 
+    public void setOnclik(Class aClass) {
+
+    }
+
     private void initPresenter() {
         mPresenter = createPresenter();
         //绑定生命周期
