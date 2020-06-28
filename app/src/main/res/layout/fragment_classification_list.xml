@@ -7,11 +7,6 @@
     android:orientation="vertical"
     tools:context=".view.fragment.ClassificationFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="这里是分类模块"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cft"
         android:layout_width="match_parent"

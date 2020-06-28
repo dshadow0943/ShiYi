@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">ShiYi</string>
+    <string name="app_name">拾遗</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_name">返回</string>
+    <string name="more_name">更多</string>
+
 </resources>

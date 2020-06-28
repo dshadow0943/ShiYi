@@ -8,53 +8,54 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="@dimen/activityBar_height"
+        android:layout_marginTop="@dimen/split_margin"
         android:orientation="horizontal">
 
         <com.flyco.tablayout.SegmentTabLayout
             android:id="@+id/poetry_tab"
             android:layout_width="200dp"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
 
-            app:tl_bar_stroke_color="#7C99FF"
+            app:tl_bar_stroke_color="@color/colorTheme"
             app:tl_bar_stroke_width="2dp"
-            app:tl_bar_color="#FFFFFF"
+            app:tl_bar_color="@color/colorBackground"
 
             app:tl_divider_width="2dp"
 
-            app:tl_indicator_color="#7C99FF"
+            app:tl_indicator_color="@color/colorTheme"
 
-            app:tl_textSelectColor="#FFFFFF"
-            app:tl_textUnselectColor="#7C99FF"
-            app:tl_textsize="14sp"/>
+            app:tl_textSelectColor="@color/colorBackground"
+            app:tl_textUnselectColor="@color/colorTheme"
+            app:tl_textsize="@dimen/heme_textSize"/>
 
         <ImageButton
             android:id="@+id/poetry_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="#FFFFFF"
+            android:background="@color/colorBackground"
             android:src="@android:drawable/ic_menu_search"
-            android:visibility="visible"
             tools:src="@android:drawable/ic_search_category_default"
-            tools:visibility="gone" />
+            tools:visibility="gone"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
     <TextView
         android:id="@+id/split_line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="60dp"
-        android:background="#BAB3B3" />
+        android:layout_height="@dimen/splitLine_height"
+        android:layout_marginTop="@dimen/splitLine_margin"
+        android:background="@color/colorSplitLine" />
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/poetry_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="1dp"
         android:layout_alignTop="@+id/split_line"/>
 
 

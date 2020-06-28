@@ -8,34 +8,38 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="@dimen/activityBar_height"
+        android:layout_marginTop="@dimen/split_margin"
         android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:textSize="16dp"
-            android:text="返回"/>
+            android:layout_marginLeft="@dimen/split_margin"
+            android:textSize="@dimen/activityBar_textSize"
+            android:text="@string/back_name"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/text_margin" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:textSize="16dp"
-            android:text="更多"/>
+            android:layout_marginRight="@dimen/split_margin"
+            android:textSize="@dimen/activityBar_textSize"
+            android:text="@string/more_name"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/text_margin" />
 
     </RelativeLayout>
 
     <TextView
         android:id="@+id/split_line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="60dp"
-        android:background="#BAB3B3" />
+        android:layout_height="@dimen/splitLine_height"
+        android:layout_marginTop="@dimen/splitLine_margin"
+        android:background="@color/colorSplitLine" />
 
 
 
@@ -44,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/split_line"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/split_margin">
 
         <ImageView
             android:id="@+id/p_list_img"
@@ -52,29 +56,31 @@
             android:layout_height="80dp"
             android:src="@drawable/ic_home_appreciate_w_28dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"/>
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/p_list_img"
             android:layout_centerVertical="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/split_margin"
+            android:layout_toEndOf="@id/p_list_img"
+            android:layout_marginStart="@dimen/split_margin">
 
             <TextView
                 android:id="@+id/p_list_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:textSize="16dp"
-                android:text="分类名"/>
+                android:textSize="@dimen/title_textSize"
+                android:text="分类名" />
 
             <TextView
                 android:id="@+id/p_list_synopsis"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:textSize="14dp"
+                android:textSize="@dimen/synopsis_textSize"
                 android:text="简介"/>
 
         </LinearLayout>
@@ -84,20 +90,21 @@
     <TextView
         android:id="@+id/split_line2"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/splitLine_height"
         android:layout_below="@id/porty_list_rel"
-        android:background="#C4C4C4" />
+        android:background="@color/colorSecondaryLine" />
 
     <com.flyco.tablayout.CommonTabLayout
         android:id="@+id/poetry_list_tab"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        app:tl_textsize="@dimen/heme_textSize"
         android:layout_below="@id/porty_list_rel"
         app:tl_iconVisible="false"
         app:tl_divider_color="#000000"
         app:tl_underline_color="#000000"
 
-        app:tl_textSelectColor="#7C99FF"
+        app:tl_textSelectColor="@color/colorTheme"
         app:tl_textUnselectColor="#444444"
 
         />
@@ -105,9 +112,9 @@
     <TextView
         android:id="@+id/split_line3"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/splitLine_height"
         android:layout_below="@id/poetry_list_tab"
-        android:background="#C4C4C4" />
+        android:background="@color/colorSecondaryLine" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/poetry_list_vp"

@@ -17,7 +17,7 @@ public class ClassificationAdapter extends CommonRecyclerAdapter<ClassificationB
     @Override
     protected void bindData(final CommonRecyclerHolder holder, final ClassificationBean data) {
         holder.setText(R.id.cft_list_name, data.getName());
-        holder.setImageResource(R.id.cft_list_img, data.getImgId());
+//        holder.setImageResource(R.id.cft_list_img, data.getImgId());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

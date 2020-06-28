@@ -1,11 +1,11 @@
 package com.example.lsj.mvpdemo.base;
 
-
 import com.example.lsj.mvpdemo.presenter.IPresenter;
 import com.example.lsj.mvpdemo.view.IView;
 
 public abstract class BasePresenter<T extends IView> implements IPresenter<T> {
-    protected T mView;
+
+    public T mView;
 
     @Override
     public void attachView(T view) {

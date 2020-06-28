@@ -1,6 +1,7 @@
 package com.example.lsj.mvpdemo.adapter;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +28,7 @@ public class ClassificationItemAdapter extends CommonRecyclerAdapter<Classificat
 
         RecyclerView recyclerView = holder.getRecyclerView(R.id.cft_list);
         recyclerView.setLayoutManager(new GridLayoutManager(context, 3, RecyclerView.HORIZONTAL, false));
-        ClassificationAdapter classificationAdapter = new ClassificationAdapter(context, data.getCfts(), R.layout.fragment_classification_l, clickCommonListener);
+        ClassificationAdapter classificationAdapter = new ClassificationAdapter(context, data.getList(), R.layout.fragment_classification_l, clickCommonListener);
         recyclerView.setAdapter(classificationAdapter);
     }
 }

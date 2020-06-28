@@ -54,7 +54,7 @@ public class PoetryListActivity extends BaseActivity<PoetryListPresenter> implem
     protected void init() {
         classificationBean = (ClassificationBean) DataSet.getObjectData("classification");
         name.setText(classificationBean.getName());
-        img.setImageResource(classificationBean.getImgId());
+//        img.setImageResource(classificationBean.getImgId());
 
         initLayout();
     }
