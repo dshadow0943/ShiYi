@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+<!--    <style name="splitLine" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--        <item name="android:listDivider">@drawable/item_divider</item>-->
+<!--    </style>-->
+
 </resources>

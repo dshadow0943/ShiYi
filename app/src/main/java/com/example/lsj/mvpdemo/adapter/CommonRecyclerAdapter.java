@@ -1,6 +1,7 @@
 package com.example.lsj.mvpdemo.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,6 +118,7 @@ public abstract class CommonRecyclerAdapter<T> extends RecyclerView.Adapter<Comm
 
     @Override
     public int getItemCount() {
+        Log.e("TAG", "getItemCount: " + dataList.size());
         return dataList.size();
     }
 

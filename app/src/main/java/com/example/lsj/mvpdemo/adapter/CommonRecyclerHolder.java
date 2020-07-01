@@ -15,9 +15,9 @@ public class CommonRecyclerHolder extends RecyclerView.ViewHolder implements Vie
 
     public interface onClickCommonListener {
 
-        void onClickListener(int position);
+        void onClickListener(View view, int position);
 
-        void onLongClickListener(int position);
+        void onLongClickListener(View view, int position);
 
     }
 
@@ -29,25 +29,41 @@ public class CommonRecyclerHolder extends RecyclerView.ViewHolder implements Vie
     public CommonRecyclerHolder(View itemView) {
         super(itemView);
         viewSparseArray = new SparseArray<>();
-        itemView.setOnClickListener(this);
-        itemView.setOnLongClickListener(this);
+//        setOnClick(itemView);
+        setOnLongClick(itemView);
     }
 
     public void setClickCommonListener(onClickCommonListener clickCommonListener) {
         this.clickCommonListener = clickCommonListener;
     }
 
+    public void setOnClick(View view){
+        view.setOnClickListener(this);
+    }
+
+    public void setOnLongClick(View view){
+        view.setOnLongClickListener(this);
+    }
+
+    public void setOnClick(int viewId){
+        setOnClick(getView(viewId));
+    }
+
+    public void setOnLongClick(int viewId){
+        setOnLongClick(getView(viewId));
+    }
+
     @Override
     public void onClick(View view) {
         if (clickCommonListener != null) {
-            clickCommonListener.onClickListener(getAdapterPosition());
+            clickCommonListener.onClickListener(view, getAdapterPosition());
         }
     }
 
     @Override
     public boolean onLongClick(View view) {
         if (clickCommonListener != null) {
-            clickCommonListener.onLongClickListener(getAdapterPosition());
+            clickCommonListener.onLongClickListener(view, getAdapterPosition());
         }
         return true;
     }

@@ -5,14 +5,14 @@ public class ClassificationBean {
     private String id;
     private int imgId;
     private String name;
-    private String img;
-    private String type;
+    private String imgPath;
+    private String typeName;
 
-    public ClassificationBean(String id, String name, String img, String type) {
+    public ClassificationBean(String id, String name, String imgPath, String typeName) {
         this.id = id;
         this.name = name;
-        this.img = img;
-        this.type = type;
+        this.imgPath = imgPath;
+        this.typeName = typeName;
     }
 
     public ClassificationBean(int imgId, String name) {
@@ -44,20 +44,20 @@ public class ClassificationBean {
         this.name = name;
     }
 
-    public String getImg() {
-        return img;
+    public String getImgPath() {
+        return imgPath;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
     @Override
@@ -66,8 +66,8 @@ public class ClassificationBean {
                 "id='" + id + '\'' +
                 ", imgId=" + imgId +
                 ", name='" + name + '\'' +
-                ", img='" + img + '\'' +
-                ", type='" + type + '\'' +
+                ", img='" + imgPath + '\'' +
+                ", type='" + typeName + '\'' +
                 '}';
     }
 }

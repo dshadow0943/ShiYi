@@ -1,12 +1,20 @@
 package com.example.lsj.mvpdemo.bean;
 
-public class WorksBean {
+import java.util.List;
+
+public class PoetryBean {
 
     private String id;
     private String name;
     private String dynasty;
     private String authorName;
-    private String verse;
+
+//    private List<LabelDao> labels;
+    private List<WorksBean> verses;
+//    private List<AppreciationDao> appreciations;
+    private List<WorksBean> classics;
+//    private List<CommentDao> commentDaos;
+
 
     public String getId() {
         return id;
@@ -40,11 +48,19 @@ public class WorksBean {
         this.authorName = authorName;
     }
 
-    public String getVerse() {
-        return verse;
+    public List<WorksBean> getVerses() {
+        return verses;
     }
 
-    public void setVerse(String verse) {
-        this.verse = verse;
+    public void setVerses(List<WorksBean> verses) {
+        this.verses = verses;
+    }
+
+    public List<WorksBean> getClassics() {
+        return classics;
+    }
+
+    public void setClassics(List<WorksBean> classics) {
+        this.classics = classics;
     }
 }

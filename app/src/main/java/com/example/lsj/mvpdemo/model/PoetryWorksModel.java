@@ -1,7 +1,7 @@
 package com.example.lsj.mvpdemo.model;
 
 import com.example.lsj.mvpdemo.base.BaseModel;
-import com.example.lsj.mvpdemo.bean.ClassificationItem;
+import com.example.lsj.mvpdemo.bean.WorksBean;
 import com.example.lsj.mvpdemo.interfaces.Callback;
 
 import java.util.List;
@@ -11,26 +11,26 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class ClassificationModel extends BaseModel {
+public class PoetryWorksModel extends BaseModel {
 
-    public void getClassificationItem(final Callback callback){
-        poetryApi.getClassificationItem()
-                .subscribeOn(Schedulers.io()) // 在子线程中进行Http访问
-                .observeOn(AndroidSchedulers.mainThread()) // UI线程处理返回接口
-                .subscribe(new Observer<List<ClassificationItem>>() { // 订阅
+    public void getPoetryItem(String label, final Callback callback){
+        poetryApi.getWorksBeanItem(label)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<WorksBean>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(List<ClassificationItem> classificationItems) {
-                        callback.onSuccess(classificationItems);
+                    public void onNext(List<WorksBean> beans) {
+                        callback.onSuccess(beans);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        callback.onFail(e);
+
                     }
 
                     @Override

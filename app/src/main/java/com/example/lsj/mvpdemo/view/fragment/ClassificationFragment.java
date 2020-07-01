@@ -2,6 +2,7 @@ package com.example.lsj.mvpdemo.view.fragment;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -47,6 +48,7 @@ public class ClassificationFragment extends BaseFragment<ClassificationPresenter
     @Override
     protected void init(){
         mPresenter.getClassificationItem();
+        Log.e("TAG", "init: ----");
     }
 
     @Override
@@ -56,14 +58,21 @@ public class ClassificationFragment extends BaseFragment<ClassificationPresenter
     }
 
     @Override
-    public void onClickListener(int position) {
-        startActivity(new Intent(getContext(), PoetryListActivity.class));
-//        Log.e("TAG", "onClickListener: " + DataSet.getObjectData("classification").toString());
-//        Toast.makeText(getContext(), "点击：" + position, Toast.LENGTH_SHORT).show();
+    public void onClickListener(View view, int position) {
+        switch (view.getId()){
+            case -1 :
+
+                break;
+            case R.id.cft_more :
+                Toast.makeText(getContext(), "点击更多：" + position, Toast.LENGTH_SHORT).show();
+                break;
+            default:    break;
+        }
+
     }
 
     @Override
-    public void onLongClickListener(int position) {
+    public void onLongClickListener(View view, int position) {
         Toast.makeText(getContext(), "长按：" + position, Toast.LENGTH_SHORT).show();
     }
 

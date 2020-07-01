@@ -1,6 +1,7 @@
 package com.example.lsj.mvpdemo.api;
 
 import com.example.lsj.mvpdemo.bean.ClassificationItem;
+import com.example.lsj.mvpdemo.bean.WorksBean;
 import com.example.lsj.mvpdemo.utils.RetrofitUtil;
 
 import java.util.List;
@@ -30,6 +31,10 @@ public class PoetryApi {
 
     public Observable<List<ClassificationItem>> getClassificationItem(){
         return poetryApiService.getClassificationItem();
+    }
+
+    public Observable<List<WorksBean>> getWorksBeanItem(String label){
+        return poetryApiService.getWorksBeanItem(label);
     }
 
 }

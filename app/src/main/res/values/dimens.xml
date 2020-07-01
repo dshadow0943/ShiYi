@@ -9,7 +9,9 @@
     
     
     <dimen name="activityBar_textSize">16sp</dimen>
+<!--    主题字体大小-->
     <dimen name="heme_textSize">14sp</dimen>
+<!--    标题字体大小-->
     <dimen name="title_textSize">16sp</dimen>
     <dimen name="synopsis_textSize">14sp</dimen>
 </resources>

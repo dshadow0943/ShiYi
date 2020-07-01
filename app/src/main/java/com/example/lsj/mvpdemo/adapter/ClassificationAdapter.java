@@ -1,17 +1,23 @@
 package com.example.lsj.mvpdemo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 
 import com.example.lsj.mvpdemo.R;
 import com.example.lsj.mvpdemo.bean.ClassificationBean;
 import com.example.lsj.mvpdemo.utils.DataSet;
+import com.example.lsj.mvpdemo.view.activity.PoetryListActivity;
 
 import java.util.List;
 
 public class ClassificationAdapter extends CommonRecyclerAdapter<ClassificationBean> {
+
+    Context context;
+
     public ClassificationAdapter(Context context, List<ClassificationBean> dataList, int layoutId, CommonRecyclerHolder.onClickCommonListener clickCommonListener) {
         super(context, dataList, layoutId, clickCommonListener);
+        this.context = context;
     }
 
     @Override
@@ -22,7 +28,7 @@ public class ClassificationAdapter extends CommonRecyclerAdapter<ClassificationB
             @Override
             public void onClick(View v) {
                 DataSet.putObject("classification", data);
-                holder.onClick(holder.itemView);
+                context.startActivity(new Intent(context, PoetryListActivity.class));
             }
         });
     }

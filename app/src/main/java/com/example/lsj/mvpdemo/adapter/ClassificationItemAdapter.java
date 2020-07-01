@@ -1,7 +1,6 @@
 package com.example.lsj.mvpdemo.adapter;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +24,7 @@ public class ClassificationItemAdapter extends CommonRecyclerAdapter<Classificat
     @Override
     protected void bindData(CommonRecyclerHolder holder, ClassificationItem data) {
         holder.setText(R.id.cft_title, data.getName());
+        holder.setOnClick(R.id.cft_more);
 
         RecyclerView recyclerView = holder.getRecyclerView(R.id.cft_list);
         recyclerView.setLayoutManager(new GridLayoutManager(context, 3, RecyclerView.HORIZONTAL, false));
