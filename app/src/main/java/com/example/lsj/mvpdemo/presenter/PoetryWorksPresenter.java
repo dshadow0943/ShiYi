@@ -1,7 +1,7 @@
 package com.example.lsj.mvpdemo.presenter;
 
 import com.example.lsj.mvpdemo.base.BasePresenter;
-import com.example.lsj.mvpdemo.bean.WorksBean;
+import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
 import com.example.lsj.mvpdemo.contract.PoetryWorksContract;
 import com.example.lsj.mvpdemo.interfaces.Callback;
 import com.example.lsj.mvpdemo.model.PoetryWorksModel;
@@ -21,7 +21,7 @@ public class PoetryWorksPresenter extends BasePresenter<PoetryWorksContract.View
         poetryWorksModel.getPoetryItem(label, new Callback() {
             @Override
             public void onSuccess(Object data) {
-                mView.showWorksSuccess((List<WorksBean>) data);
+                mView.showWorksSuccess((List<PoetryWorksBean>) data);
             }
 
             @Override

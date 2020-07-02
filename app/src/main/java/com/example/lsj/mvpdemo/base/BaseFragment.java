@@ -57,7 +57,7 @@ public abstract class BaseFragment<T extends IPresenter> extends Fragment implem
         }
     }
 
-    @Override
+    @Override 
     public void onDestroy() {
         if (mPresenter != null) {
             mPresenter.detachView();

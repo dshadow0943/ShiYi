@@ -10,9 +10,9 @@ public class PoetryBean {
     private String authorName;
 
 //    private List<LabelDao> labels;
-    private List<WorksBean> verses;
+    private List<VerseBean> verses;
 //    private List<AppreciationDao> appreciations;
-    private List<WorksBean> classics;
+    private List<VerseBean> classics;
 //    private List<CommentDao> commentDaos;
 
 
@@ -48,19 +48,20 @@ public class PoetryBean {
         this.authorName = authorName;
     }
 
-    public List<WorksBean> getVerses() {
+    public List<VerseBean> getVerses() {
         return verses;
     }
 
-    public void setVerses(List<WorksBean> verses) {
+    public void setVerses(List<VerseBean> verses) {
         this.verses = verses;
     }
 
-    public List<WorksBean> getClassics() {
+    public List<VerseBean> getClassics() {
         return classics;
     }
 
-    public void setClassics(List<WorksBean> classics) {
+    public void setClassics(List<VerseBean> classics) {
         this.classics = classics;
     }
+
 }

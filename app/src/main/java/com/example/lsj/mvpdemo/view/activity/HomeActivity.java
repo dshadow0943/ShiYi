@@ -9,7 +9,7 @@ import com.example.lsj.mvpdemo.R;
 import com.example.lsj.mvpdemo.base.BaseActivity;
 import com.example.lsj.mvpdemo.contract.HomeContract;
 import com.example.lsj.mvpdemo.presenter.HomePresenter;
-import com.example.lsj.mvpdemo.view.fragment.AppreciateFragment;
+import com.example.lsj.mvpdemo.view.fragment.ClassicVerseFragment;
 import com.example.lsj.mvpdemo.view.fragment.MineFragment;
 import com.example.lsj.mvpdemo.view.fragment.PlatformFragment;
 import com.example.lsj.mvpdemo.view.fragment.PoetryLibraryFragment;
@@ -53,7 +53,7 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
     }
 
     public void configViews() {
-        fragments.add(AppreciateFragment.newInstance());
+        fragments.add(ClassicVerseFragment.newInstance());
         fragments.add(PlatformFragment.newInstance());
         fragments.add(PoetryLibraryFragment.newInstance());
         fragments.add(MineFragment.newInstance("", ""));

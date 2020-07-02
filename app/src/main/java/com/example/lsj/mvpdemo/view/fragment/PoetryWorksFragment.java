@@ -1,6 +1,6 @@
 package com.example.lsj.mvpdemo.view.fragment;
 
-import android.util.Log;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,9 +11,12 @@ import com.example.lsj.mvpdemo.R;
 import com.example.lsj.mvpdemo.adapter.CommonRecyclerHolder;
 import com.example.lsj.mvpdemo.adapter.PoetryWroksAdapter;
 import com.example.lsj.mvpdemo.base.BaseFragment;
-import com.example.lsj.mvpdemo.bean.WorksBean;
+import com.example.lsj.mvpdemo.bean.ClassificationBean;
+import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
 import com.example.lsj.mvpdemo.contract.PoetryWorksContract;
 import com.example.lsj.mvpdemo.presenter.PoetryWorksPresenter;
+import com.example.lsj.mvpdemo.utils.DataSet;
+import com.example.lsj.mvpdemo.view.activity.PoetryShowActivity;
 
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class PoetryWorksFragment extends BaseFragment<PoetryWorksPresenter> impl
 
     private RecyclerView works;
     private PoetryWroksAdapter poetryWroksAdapter;
+    private List<PoetryWorksBean> worksBeans;
 
     public static PoetryWorksFragment newInstance() {
         return new PoetryWorksFragment();
@@ -43,12 +47,17 @@ public class PoetryWorksFragment extends BaseFragment<PoetryWorksPresenter> impl
 
     @Override
     protected void init() {
-        mPresenter.getPoetryItem("爱");
+        mPresenter.getPoetryItem(((ClassificationBean) DataSet.getObjectData("classification")).getName());
     }
 
     @Override
     public void onClickListener(View view, int position) {
-        Toast.makeText(getContext(), "短按：" + position, Toast.LENGTH_SHORT).show();
+        switch (view.getId()){
+            case -1:
+                DataSet.putObject("poetryWorks", worksBeans.get(position));
+                startActivity(new Intent(getContext(), PoetryShowActivity.class));
+                break;
+        }
     }
 
     @Override
@@ -57,8 +66,8 @@ public class PoetryWorksFragment extends BaseFragment<PoetryWorksPresenter> impl
     }
 
     @Override
-    public void showWorksSuccess(List<WorksBean> beans) {
-        Log.e("TAG", "showWorksSuccess: " + beans.toString());
+    public void showWorksSuccess(List<PoetryWorksBean> beans) {
+        worksBeans = beans;
         works.setLayoutManager(new LinearLayoutManager(getContext()));
         poetryWroksAdapter = new PoetryWroksAdapter(getContext(), beans, R.layout.fragment_poetry_work, this);
         works.setAdapter(poetryWroksAdapter);

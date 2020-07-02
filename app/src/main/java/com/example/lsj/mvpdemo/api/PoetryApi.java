@@ -1,7 +1,9 @@
 package com.example.lsj.mvpdemo.api;
 
 import com.example.lsj.mvpdemo.bean.ClassificationItem;
-import com.example.lsj.mvpdemo.bean.WorksBean;
+import com.example.lsj.mvpdemo.bean.PoetryBean;
+import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
+import com.example.lsj.mvpdemo.bean.VerseBean;
 import com.example.lsj.mvpdemo.utils.RetrofitUtil;
 
 import java.util.List;
@@ -33,8 +35,16 @@ public class PoetryApi {
         return poetryApiService.getClassificationItem();
     }
 
-    public Observable<List<WorksBean>> getWorksBeanItem(String label){
+    public Observable<List<PoetryWorksBean>> getWorksBeanItem(String label){
         return poetryApiService.getWorksBeanItem(label);
+    }
+
+    public Observable<List<VerseBean>> getClassicVerseItem(){
+        return poetryApiService.getClassicVerseItem();
+    }
+
+    public Observable<PoetryBean> getPoetryById(String id){
+        return poetryApiService.getPoetryById(id);
     }
 
 }

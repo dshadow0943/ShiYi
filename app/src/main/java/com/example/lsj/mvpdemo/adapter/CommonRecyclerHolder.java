@@ -75,7 +75,7 @@ public class CommonRecyclerHolder extends RecyclerView.ViewHolder implements Vie
      * @param <T>    泛型
      * @return 将结果强转为 View 或 View 的子类型
      */
-    private  <T extends View> T getView(int viewId) {
+    public   <T extends View> T getView(int viewId) {
         // 先从缓存中找，找到的话则直接返回
         // 如果找不到则findViewById，再把结果存入缓存中
         View view = viewSparseArray.get(viewId);

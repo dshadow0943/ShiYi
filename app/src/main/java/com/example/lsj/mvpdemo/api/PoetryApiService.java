@@ -1,7 +1,9 @@
 package com.example.lsj.mvpdemo.api;
 
 import com.example.lsj.mvpdemo.bean.ClassificationItem;
-import com.example.lsj.mvpdemo.bean.WorksBean;
+import com.example.lsj.mvpdemo.bean.PoetryBean;
+import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
+import com.example.lsj.mvpdemo.bean.VerseBean;
 
 import java.util.List;
 
@@ -16,7 +18,13 @@ public interface PoetryApiService {
     @GET("category/shows")
     Observable<List<ClassificationItem>> getClassificationItem();
 
+    @GET("verse/classic")
+    Observable<List<VerseBean>> getClassicVerseItem();
+
     @POST("poetry/seek")
-    Observable<List<WorksBean>> getWorksBeanItem(@Query("label") String label);
+    Observable<List<PoetryWorksBean>> getWorksBeanItem(@Query("label") String label);
+
+    @POST("poetry/seek")
+    Observable<PoetryBean> getPoetryById(@Query("id") String id);
 
 }

@@ -1,6 +1,6 @@
 package com.example.lsj.mvpdemo.bean;
 
-public class WorksBean {
+public class PoetryWorksBean {
 
     private String id;
     private String name;

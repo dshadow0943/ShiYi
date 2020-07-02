@@ -78,7 +78,6 @@ public class ClassificationFragment extends BaseFragment<ClassificationPresenter
 
     @Override
     public void showClassificationSuccess(List<ClassificationItem> beans) {
-        Log.e("TAG", "showClassificationSuccess: "+ beans.size() + beans.toString());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         classificationItemAdapter = new ClassificationItemAdapter(getContext(), beans, R.layout.fragment_classification, this);

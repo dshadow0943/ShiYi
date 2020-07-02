@@ -1,31 +1,31 @@
-package com.example.lsj.mvpdemo.model;
+package com.example.lsj.mvpdemo.presenter;
 
-import com.example.lsj.mvpdemo.base.BaseModel;
-import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
-import com.example.lsj.mvpdemo.interfaces.Callback;
-
-import java.util.List;
+import com.example.lsj.mvpdemo.base.BasePresenter;
+import com.example.lsj.mvpdemo.bean.PoetryBean;
+import com.example.lsj.mvpdemo.contract.PoetryShowContract;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class PoetryWorksModel extends BaseModel {
+public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> implements PoetryShowContract.presenter {
 
-    public void getPoetryItem(String label, final Callback callback){
-        poetryApi.getWorksBeanItem(label)
+
+    @Override
+    public void getPoetryItem(String id) {
+        poetryApi.getPoetryById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<PoetryWorksBean>>() {
+                .subscribe(new Observer<PoetryBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(List<PoetryWorksBean> beans) {
-                        callback.onSuccess(beans);
+                    public void onNext(PoetryBean poetryBean) {
+                        mView.showWorksSuccess(poetryBean);
                     }
 
                     @Override
@@ -39,5 +39,4 @@ public class PoetryWorksModel extends BaseModel {
                     }
                 });
     }
-
 }

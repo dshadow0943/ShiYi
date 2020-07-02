@@ -53,6 +53,9 @@ public class PoetryListActivity extends BaseActivity<PoetryListPresenter> implem
     @Override
     protected void init() {
         classificationBean = (ClassificationBean) DataSet.getObjectData("classification");
+        if (classificationBean == null){
+            return;
+        }
         name.setText(classificationBean.getName());
 //        img.setImageResource(classificationBean.getImgId());
 
