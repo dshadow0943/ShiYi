@@ -11,6 +11,8 @@ import java.util.List;
 
 public class PoetryShowsVerseAdapter extends CommonRecyclerAdapter<VerseBean> {
 
+    private Boolean flag = true;
+
     public PoetryShowsVerseAdapter(Context context, List<VerseBean> dataList, int layoutId, CommonRecyclerHolder.onClickCommonListener clickCommonListener) {
         super(context, dataList, layoutId, clickCommonListener);
     }
@@ -18,10 +20,11 @@ public class PoetryShowsVerseAdapter extends CommonRecyclerAdapter<VerseBean> {
     @Override
     public void onBindViewHolder(CommonRecyclerHolder holder, int position) {
         super.onBindViewHolder(holder, position);
-        if (position == 0){
+        if (position == 0 && flag){
             TextView verse = holder.getView(R.id.poetry_verse);
             verse.setTextSize(20);
             verse.setTextColor(Color.BLACK);
+            flag = false;
         }
     }
 

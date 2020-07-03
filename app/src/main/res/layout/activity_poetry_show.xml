@@ -28,62 +28,109 @@
         android:layout_height="@dimen/splitLine_height"
         android:background="@color/colorSplitLine"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/poetry_verse"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/edge_margin"
-        android:layout_marginLeft="@dimen/edge_margin"
-        android:layout_marginTop="40dp"/>
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/edge_margin"
-        android:layout_marginRight="@dimen/edge_margin">
-
-        <com.flyco.tablayout.SlidingTabLayout
-            android:id="@+id/poetry_tab"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:tl_tab_width="70dp"
-            app:tl_textsize="@dimen/heme_textSize"
+            android:layout_height="match_parent">
 
-            app:tl_divider_color="#000000"
-            app:tl_underline_color="#000000"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/poetry_verse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/edge_margin"
+                android:layout_marginLeft="@dimen/edge_margin"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"/>
 
-            app:tl_textSelectColor="@color/colorTheme"
-            app:tl_textUnselectColor="#444444" />
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/poetry_vp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/splitLine_height"
+                android:background="@color/colorSecondaryLine"/>
 
-        <TextView
-            android:id="@+id/poetry_author"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="作者"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/edge_margin"
+                android:layout_marginRight="@dimen/edge_margin"
+                android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/poetry_author_summary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/poetry_show_comment"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="注释"
+                    android:textSize="@dimen/title_textSize"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="经典句"/>
+                <TextView
+                    android:id="@+id/poetry_show_translation"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="译文"
+                    android:textSize="@dimen/title_textSize"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/poetry_classics"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/poetry_show_appreciation"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="赏析"
+                    android:textSize="@dimen/title_textSize"/>
 
-    </LinearLayout>
 
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/splitLine_height"
+                android:background="@color/colorSecondaryLine"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/edge_margin"
+                android:layout_marginRight="@dimen/edge_margin"
+                android:layout_marginTop="10dp">
+
+
+                <TextView
+                    android:id="@+id/poetry_show_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"/>
+
+                <TextView
+                    android:id="@+id/poetry_author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="作者"
+                    android:textSize="@dimen/title_textSize"/>
+
+                <TextView
+                    android:id="@+id/poetry_author_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="经典句"
+                    android:textSize="@dimen/title_textSize"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/poetry_classics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

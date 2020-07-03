@@ -11,9 +11,9 @@ public class PoetryBean {
 
 //    private List<LabelDao> labels;
     private List<VerseBean> verses;
-//    private List<AppreciationDao> appreciations;
+    private List<AppreciationBean> appreciations;
     private List<VerseBean> classics;
-//    private List<CommentDao> commentDaos;
+    private List<CommentBean> comments;
 
 
     public String getId() {
@@ -64,4 +64,19 @@ public class PoetryBean {
         this.classics = classics;
     }
 
+    public List<AppreciationBean> getAppreciations() {
+        return appreciations;
+    }
+
+    public void setAppreciations(List<AppreciationBean> appreciations) {
+        this.appreciations = appreciations;
+    }
+
+    public List<CommentBean> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentBean> comments) {
+        this.comments = comments;
+    }
 }
