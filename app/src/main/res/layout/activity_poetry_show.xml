@@ -35,7 +35,24 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/poetry_show_title"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:text="诗名"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/poetry_show_author"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="作者"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/poetry_verse"
@@ -43,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/edge_margin"
                 android:layout_marginLeft="@dimen/edge_margin"
-                android:layout_marginTop="40dp"
                 android:layout_marginBottom="10dp"/>
 
 
@@ -106,25 +122,32 @@
                 <TextView
                     android:id="@+id/poetry_author"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#FF0000"
                     android:text="作者"
                     android:textSize="@dimen/title_textSize"/>
 
                 <TextView
                     android:id="@+id/poetry_author_summary"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"/>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#FF0000"
                     android:text="经典句"
                     android:textSize="@dimen/title_textSize"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/poetry_classics"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"/>
+
 
             </LinearLayout>
 

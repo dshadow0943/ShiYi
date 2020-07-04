@@ -8,6 +8,7 @@ public class PoetryBean {
     private String name;
     private String dynasty;
     private String authorName;
+    private AuthorBean author;
 
 //    private List<LabelDao> labels;
     private List<VerseBean> verses;
@@ -46,6 +47,14 @@ public class PoetryBean {
 
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
+    }
+
+    public AuthorBean getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(AuthorBean author) {
+        this.author = author;
     }
 
     public List<VerseBean> getVerses() {

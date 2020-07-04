@@ -9,12 +9,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/activityBar_height"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <com.flyco.tablayout.SegmentTabLayout
             android:id="@+id/poetry_tab"
             android:layout_width="200dp"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
             android:layout_centerInParent="true"
 
             app:tl_bar_stroke_color="@color/colorTheme"
@@ -31,14 +32,15 @@
 
         <ImageButton
             android:id="@+id/poetry_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/edge_margin"
             android:background="@color/colorBackground"
             android:src="@android:drawable/ic_menu_search"
             tools:src="@android:drawable/ic_search_category_default"
-            tools:visibility="gone"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/edge_margin" />
 
     </RelativeLayout>
 

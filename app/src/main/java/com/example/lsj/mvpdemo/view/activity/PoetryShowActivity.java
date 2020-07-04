@@ -27,13 +27,16 @@ import java.util.List;
 public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implements PoetryShowContract.View, CommonRecyclerHolder.onClickCommonListener, View.OnClickListener {
 
     private PoetryWorksBean poetryWorks;
+    RecyclerView recyclerViewVerse;
+    private RecyclerView classicRecyclerView;
     private PoetryBean poetry;
     private TextView commentText;
     private TextView translationText;
     private TextView appreciationText;
     private TextView textText;
     private TextView authorSummaryText;
-    private RecyclerView classicRecyclerView;
+    private TextView titleText;
+    private TextView authorText;
 
     List<TextView> viewList = new ArrayList<>();
 
@@ -46,12 +49,17 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
     @Override
     protected void bindinLayout() {
 
+        recyclerViewVerse = findViewById(R.id.poetry_verse);
+        classicRecyclerView = findViewById(R.id.poetry_classics);
+
         commentText = findViewById(R.id.poetry_show_comment);
         translationText = findViewById(R.id.poetry_show_translation);
         appreciationText = findViewById(R.id.poetry_show_appreciation);
         textText = findViewById(R.id.poetry_show_text);
         authorSummaryText = findViewById(R.id.poetry_author_summary);
         classicRecyclerView = findViewById(R.id.poetry_classics);
+        titleText = findViewById(R.id.poetry_show_title);
+        authorText = findViewById(R.id.poetry_show_author);
 
         commentText.setOnClickListener(this);
         translationText.setOnClickListener(this);
@@ -101,18 +109,18 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
 
     private void config(){
 
-        List<VerseBean> verses = new ArrayList<>();
-        verses.add(new VerseBean(poetry.getName()));
-        verses.add(new VerseBean(poetry.getDynasty()+" "+poetry.getAuthorName()));
-        verses.addAll(poetry.getVerses());
-
-        RecyclerView recyclerViewVerse = findViewById(R.id.poetry_verse);
+        titleText.setText(poetry.getName());
+        authorText.setText("["+poetry.getDynasty() + "] " + poetry.getAuthorName());
         recyclerViewVerse.setLayoutManager(new LinearLayoutManager(this));
-        PoetryShowsVerseAdapter verseAdapter = new PoetryShowsVerseAdapter(this, verses, R.layout.activity_poetry_show_verse, this);
+        PoetryShowsVerseAdapter verseAdapter = new PoetryShowsVerseAdapter(this, poetry.getVerses(), R.layout.activity_poetry_show_verse, this);
         recyclerViewVerse.setAdapter(verseAdapter);
 
         changeText(0);
+        authorSummaryText.setText(poetry.getAuthor().getSummary());
 
+        classicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        PoetryShowsVerseAdapter classicAdapter = new PoetryShowsVerseAdapter(this, poetry.getClassics(), R.layout.activity_poetry_show_classic, this);
+        classicRecyclerView.setAdapter(classicAdapter);
     }
 
     private String initText(int position){
@@ -127,7 +135,7 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
             }
         } else if (position == 2){
             for (AppreciationBean a : poetry.getAppreciations()){
-                text = text + a.getText() + "\n";
+                text = text + a.getText() + "\n\n";
             }
         }
 
@@ -147,7 +155,7 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
                 break;
 
             case R.id.poetry_show_appreciation:
-//                changeText(2);
+                changeText(2);
                 break;
         }
 

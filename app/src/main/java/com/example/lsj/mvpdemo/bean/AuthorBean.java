@@ -4,7 +4,8 @@ public class AuthorBean {
 
     private String id;
     private String name;
-    private String content;
+    private String dynasty;
+    private String summary;
 
     public String getId() {
         return id;
@@ -22,11 +23,19 @@ public class AuthorBean {
         this.name = name;
     }
 
-    public String getContent() {
-        return content;
+    public String getDynasty() {
+        return dynasty;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDynasty(String dynasty) {
+        this.dynasty = dynasty;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 }
