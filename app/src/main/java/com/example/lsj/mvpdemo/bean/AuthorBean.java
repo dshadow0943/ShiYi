@@ -38,4 +38,14 @@ public class AuthorBean {
     public void setSummary(String summary) {
         this.summary = summary;
     }
+
+    @Override
+    public String toString() {
+        return "AuthorBean{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", dynasty='" + dynasty + '\'' +
+                ", summary='" + summary + '\'' +
+                '}';
+    }
 }

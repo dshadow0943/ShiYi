@@ -10,7 +10,7 @@ public class PoetryBean {
     private String authorName;
     private AuthorBean author;
 
-//    private List<LabelDao> labels;
+    private List<String> labels;
     private List<VerseBean> verses;
     private List<AppreciationBean> appreciations;
     private List<VerseBean> classics;
@@ -87,5 +87,29 @@ public class PoetryBean {
 
     public void setComments(List<CommentBean> comments) {
         this.comments = comments;
+    }
+
+    public List<String> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<String> labels) {
+        this.labels = labels;
+    }
+
+    @Override
+    public String toString() {
+        return "PoetryBean{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", dynasty='" + dynasty + '\'' +
+                ", authorName='" + authorName + '\'' +
+                ", author=" + author +
+                ", labels=" + labels +
+                ", verses=" + verses +
+                ", appreciations=" + appreciations +
+                ", classics=" + classics +
+                ", comments=" + comments +
+                '}';
     }
 }

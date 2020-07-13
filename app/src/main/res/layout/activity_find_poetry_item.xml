@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".view.activity.FindPoetryItemActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/activityBar_height"
-        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
@@ -27,26 +27,7 @@
             android:layout_height="match_parent"
             android:textSize="@dimen/heme_textSize"
             android:maxLines="1"
-            android:layout_centerInParent="true"
-            android:visibility="gone"/>
-
-        <com.flyco.tablayout.SegmentTabLayout
-            android:id="@+id/poetry_tab"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:layout_centerInParent="true"
-
-            app:tl_bar_stroke_color="@color/colorTheme"
-            app:tl_bar_stroke_width="2dp"
-            app:tl_bar_color="@color/colorBackground"
-
-            app:tl_divider_width="2dp"
-
-            app:tl_indicator_color="@color/colorTheme"
-
-            app:tl_textSelectColor="@color/colorBackground"
-            app:tl_textUnselectColor="@color/colorTheme"
-            app:tl_textsize="@dimen/heme_textSize"/>
+            android:layout_centerInParent="true"/>
 
         <TextView
             android:id="@+id/find"
@@ -58,20 +39,7 @@
             android:layout_marginEnd="@dimen/edge_margin"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:visibility="gone"/>
-
-        <ImageView
-            android:id="@+id/poetry_search"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/edge_margin"
-            android:background="@color/colorBackground"
-            android:src="@android:drawable/ic_menu_search"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/edge_margin" />
+            android:layout_centerVertical="true"/>
 
     </RelativeLayout>
 
@@ -81,11 +49,33 @@
         android:layout_height="@dimen/splitLine_height"
         android:background="@color/colorSplitLine" />
 
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/poetry_vp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/edge_margin"
+            android:layout_marginLeft="@dimen/edge_margin">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/heme_textSize"
+                android:text="搜索结果如下："/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/poetry_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 
 </LinearLayout>

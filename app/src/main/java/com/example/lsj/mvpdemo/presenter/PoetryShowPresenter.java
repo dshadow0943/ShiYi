@@ -1,8 +1,15 @@
 package com.example.lsj.mvpdemo.presenter;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.lsj.mvpdemo.base.BasePresenter;
 import com.example.lsj.mvpdemo.bean.PoetryBean;
 import com.example.lsj.mvpdemo.contract.PoetryShowContract;
+import com.example.lsj.mvpdemo.reptile.ReptileTest;
+
+import java.io.IOException;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -38,5 +45,27 @@ public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> 
 
                     }
                 });
+    }
+
+    @Override
+    public void getPoetry(final String url) {
+        new Thread(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void run() {
+                PoetryBean poetry = null;
+                try {
+                    poetry = ReptileTest.getPoetry2(url);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (poetry != null){
+                    mView.showWorksSuccess2(poetry);
+                }
+                else {
+                    mView.showWorksFail();
+                }
+            }
+        }).start();
     }
 }

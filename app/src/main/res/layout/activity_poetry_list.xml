@@ -9,28 +9,43 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/activityBar_height"
-        android:layout_marginTop="@dimen/split_margin"
-        android:gravity="center_vertical">
+        android:layout_marginRight="@dimen/edge_margin"
+        android:layout_marginLeft="@dimen/edge_margin">
+
+        <ImageView
+            android:id="@+id/back_l"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow_left"
+            android:layout_centerVertical="true"/>
 
         <TextView
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="@dimen/split_margin"
+            android:layout_toRightOf="@id/back_l"
+            android:layout_centerVertical="true"
             android:textSize="@dimen/activityBar_textSize"
             android:text="@string/back_name"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/edge_margin" />
+            android:layout_toEndOf="@id/back_l" />
 
         <TextView
+            android:id="@+id/more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/split_margin"
+            android:layout_toLeftOf="@id/more_r"
+            android:layout_centerVertical="true"
             android:textSize="@dimen/activityBar_textSize"
-            android:text="@string/more_name"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/edge_margin" />
+            android:text="@string/more_name"/>
+
+        <ImageView
+            android:id="@+id/more_r"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow_right"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.PoetryShowActivity"></activity>
+        <activity android:name=".view.activity.FindPoetryItemActivity"></activity>
+        <activity android:name=".view.activity.PoetryShowActivity" />
         <activity android:name=".view.activity.PoetryListActivity" />
         <activity android:name=".view.activity.HomeActivity" />
         <activity android:name=".view.MainActivity">

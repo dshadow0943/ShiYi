@@ -1,8 +1,10 @@
 package com.example.lsj.mvpdemo.view.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +22,7 @@ import com.example.lsj.mvpdemo.bean.VerseBean;
 import com.example.lsj.mvpdemo.contract.PoetryShowContract;
 import com.example.lsj.mvpdemo.presenter.PoetryShowPresenter;
 import com.example.lsj.mvpdemo.utils.DataSet;
+import com.example.lsj.mvpdemo.utils.SpaceItemDecorationUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +41,10 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
     private TextView titleText;
     private TextView authorText;
 
+    private EditText findBox;
+    private TextView find;
+    private TextView back;
+
     List<TextView> viewList = new ArrayList<>();
 
 
@@ -52,6 +59,11 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
         recyclerViewVerse = findViewById(R.id.poetry_verse);
         classicRecyclerView = findViewById(R.id.poetry_classics);
 
+        recyclerViewVerse.setLayoutManager(new LinearLayoutManager(this));
+        classicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewVerse.addItemDecoration(new SpaceItemDecorationUtil(30));
+        classicRecyclerView.addItemDecoration(new SpaceItemDecorationUtil(20));
+
         commentText = findViewById(R.id.poetry_show_comment);
         translationText = findViewById(R.id.poetry_show_translation);
         appreciationText = findViewById(R.id.poetry_show_appreciation);
@@ -61,6 +73,12 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
         titleText = findViewById(R.id.poetry_show_title);
         authorText = findViewById(R.id.poetry_show_author);
 
+        find = findViewById(R.id.find);
+        findBox = findViewById(R.id.find_box);
+        back = findViewById(R.id.back);
+
+        find.setOnClickListener(this);
+        back.setOnClickListener(this);
         commentText.setOnClickListener(this);
         translationText.setOnClickListener(this);
         appreciationText.setOnClickListener(this);
@@ -79,10 +97,17 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
     @Override
     protected void init() {
         poetryWorks = (PoetryWorksBean) DataSet.getObjectData("poetryWorks");
-        if (poetryWorks == null){
-            return;
+        if (poetryWorks != null){
+            DataSet.removeObjectData("poetryWorks");
+            mPresenter.getPoetryItem(poetryWorks.getId());
+        }else {
+            Intent intent = getIntent();
+            String url = intent.getStringExtra("url");
+            if (url != null){
+                mPresenter.getPoetry(url);
+            }
         }
-        mPresenter.getPoetryItem(poetryWorks.getId());
+
     }
 
     @Override
@@ -90,6 +115,25 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
         Log.e("TAG", "showWorksSuccess: " + bean.toString());
         poetry = bean;
         config();
+    }
+
+    @Override
+    public void showWorksSuccess2(final PoetryBean poetry2) {
+        Log.e("TAG", "showWorksSuccess2: "+poetry2.toString());
+        poetry = poetry2;
+        final PoetryShowsVerseAdapter verseAdapter = new PoetryShowsVerseAdapter(this, poetry2.getVerses(), R.layout.activity_poetry_show_verse, this);
+//        final PoetryShowsVerseAdapter classicAdapter = new PoetryShowsVerseAdapter(this, poetry.getClassics(), R.layout.activity_poetry_show_classic, this);
+        recyclerViewVerse.post(new Runnable() {
+            @Override
+            public void run() {
+                titleText.setText(poetry2.getName());
+                authorText.setText("["+poetry2.getDynasty() + "] " + poetry2.getAuthorName());
+                recyclerViewVerse.setAdapter(verseAdapter);
+                changeText(0);
+                authorSummaryText.setText(poetry2.getAuthor().getSummary());
+//                classicRecyclerView.setAdapter(classicAdapter);
+            }
+        });
     }
 
     @Override
@@ -111,7 +155,6 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
 
         titleText.setText(poetry.getName());
         authorText.setText("["+poetry.getDynasty() + "] " + poetry.getAuthorName());
-        recyclerViewVerse.setLayoutManager(new LinearLayoutManager(this));
         PoetryShowsVerseAdapter verseAdapter = new PoetryShowsVerseAdapter(this, poetry.getVerses(), R.layout.activity_poetry_show_verse, this);
         recyclerViewVerse.setAdapter(verseAdapter);
 
@@ -125,17 +168,20 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
 
     private String initText(int position){
         String text = "";
-        if (position == 0){
+        if (poetry == null){
+            return "";
+        }
+        if (position == 0 && poetry.getComments() != null){
             for (CommentBean c:poetry.getComments()){
                 text = text + c.getField()+": "+c.getText()+"\n";
             }
-        } else if (position == 1){
+        } else if (position == 1 && poetry.getVerses() != null){
             for (VerseBean v : poetry.getVerses()){
                 text = text + v.getTranslation() + "\n";
             }
-        } else if (position == 2){
+        } else if (position == 2 && poetry.getAppreciations() != null){
             for (AppreciationBean a : poetry.getAppreciations()){
-                text = text + a.getText() + "\n\n";
+                text = text + a.getText() + "\n";
             }
         }
 
@@ -156,6 +202,21 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
 
             case R.id.poetry_show_appreciation:
                 changeText(2);
+                break;
+
+            case R.id.find:
+                if (findBox.getText().toString().equals("")){
+                    return;
+                }
+                String value = findBox.getText().toString();
+                findBox.setText("");
+                Intent intent = new Intent(this, FindPoetryItemActivity.class);
+                intent.putExtra("find", value);
+                startActivity(intent);
+                break;
+
+            case R.id.back:
+                finish();
                 break;
         }
 

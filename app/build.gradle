@@ -47,5 +47,8 @@ dependencies {
     implementation 'com.github.forvv231:EasyNavigation:1.0.3'
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 
+    //爬虫
+    implementation 'org.jsoup:jsoup:1.11.1'
+
 
 }

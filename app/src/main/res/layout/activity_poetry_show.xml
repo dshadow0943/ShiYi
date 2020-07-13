@@ -14,12 +14,41 @@
         android:layout_marginLeft="@dimen/edge_margin"
         android:gravity="center_vertical">
 
+        <ImageView
+            android:id="@+id/back_l"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow_left"
+            android:layout_centerVertical="true"/>
+
         <TextView
-            android:id="@+id/poetry_show_back"
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/back_l"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/activityBar_textSize"
+            android:text="@string/back_name"/>
+
+        <EditText
+            android:id="@+id/find_box"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/heme_textSize"
+            android:maxLines="1"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/find"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/activityBar_textSize"
-            android:text="@string/back_name"/>
+            android:text="搜索"
+            android:layout_marginRight="@dimen/edge_margin"
+            android:layout_marginEnd="@dimen/edge_margin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
 
     </RelativeLayout>
 
@@ -122,7 +151,8 @@
                 <TextView
                     android:id="@+id/poetry_author"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="40dp"
+                    android:background="@color/colorSecondaryLine"
                     android:gravity="center_vertical"
                     android:textColor="#FF0000"
                     android:text="作者"
@@ -136,8 +166,9 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="40dp"
                     android:gravity="center_vertical"
+                    android:background="@color/colorSecondaryLine"
                     android:textColor="#FF0000"
                     android:text="经典句"
                     android:textSize="@dimen/title_textSize"/>

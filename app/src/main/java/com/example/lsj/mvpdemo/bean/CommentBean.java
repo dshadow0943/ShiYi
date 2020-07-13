@@ -39,4 +39,14 @@ public class CommentBean {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "CommentBean{" +
+                "series='" + series + '\'' +
+                ", verseId='" + verseId + '\'' +
+                ", field='" + field + '\'' +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
             actionBar.hide();
         }
         startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        finish();
 
     }
 }

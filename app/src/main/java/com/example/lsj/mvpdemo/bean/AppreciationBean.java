@@ -30,4 +30,13 @@ public class AppreciationBean {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "AppreciationBean{" +
+                "series='" + series + '\'' +
+                ", poetryId='" + poetryId + '\'' +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

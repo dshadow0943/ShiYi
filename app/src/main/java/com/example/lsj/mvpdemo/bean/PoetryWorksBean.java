@@ -7,6 +7,7 @@ public class PoetryWorksBean {
     private String dynasty;
     private String authorName;
     private String verse;
+    private String url;
 
     public String getId() {
         return id;
@@ -46,5 +47,13 @@ public class PoetryWorksBean {
 
     public void setVerse(String verse) {
         this.verse = verse;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

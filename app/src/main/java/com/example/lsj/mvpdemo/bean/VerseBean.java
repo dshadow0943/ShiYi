@@ -1,5 +1,7 @@
 package com.example.lsj.mvpdemo.bean;
 
+import java.util.List;
+
 public class VerseBean {
 
     private String id;
@@ -9,11 +11,8 @@ public class VerseBean {
     private String authorName;
     private String text;
     private String translation;
+    private List<CommentBean> comments;
     private boolean classic;
-
-    public VerseBean(String text) {
-        this.text = text;
-    }
 
     public String getId() {
         return id;
@@ -77,5 +76,28 @@ public class VerseBean {
 
     public void setClassic(boolean classic) {
         this.classic = classic;
+    }
+
+    public List<CommentBean> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentBean> comments) {
+        this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return "VerseBean{" +
+                "id='" + id + '\'' +
+                ", series='" + series + '\'' +
+                ", poetryId='" + poetryId + '\'' +
+                ", authorId='" + authorId + '\'' +
+                ", authorName='" + authorName + '\'' +
+                ", text='" + text + '\'' +
+                ", translation='" + translation + '\'' +
+                ", comments=" + comments +
+                ", classic=" + classic +
+                '}';
     }
 }

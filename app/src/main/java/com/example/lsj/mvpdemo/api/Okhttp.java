@@ -16,7 +16,7 @@ public class Okhttp {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void run(String url) throws IOException {
-        Log.e("TAG", "run: "+url);
+//        Log.e("TAG", "run: "+url);
         Request request = new Request.Builder()
                 .url(url)
                 .get()
