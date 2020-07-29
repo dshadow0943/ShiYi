@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_height="60dp">
+
+    <TextView
+        android:id="@+id/author_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title_textSize"
+        android:textColor="@color/colorBlack"
+        android:text="作者"
+        />
+
+    <TextView
+        android:id="@+id/author_nsy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/author_name"
+        android:layout_marginLeft="10dp"
+        android:textSize="@dimen/title_textSize"
+        android:text="[朝代]"
+        android:layout_toEndOf="@id/author_name"
+        android:layout_marginStart="10dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/arrow_right"/>
+
+</RelativeLayout>

@@ -16,6 +16,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textSize="@dimen/title_textSize"
+            android:maxLines="1"
             android:text="诗名"/>
 
         <TextView

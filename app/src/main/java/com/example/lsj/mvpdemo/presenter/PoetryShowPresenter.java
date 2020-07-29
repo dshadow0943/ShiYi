@@ -1,6 +1,7 @@
 package com.example.lsj.mvpdemo.presenter;
 
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -18,6 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> implements PoetryShowContract.presenter {
 
+    private static final String TAG = "PoetryShowPresenter";
 
     @Override
     public void getPoetryItem(String id) {
@@ -61,11 +63,44 @@ public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> 
                 }
                 if (poetry != null){
                     mView.showWorksSuccess2(poetry);
+//                    if (poetry.getComments().size() == 0 || poetry.getAppreciations().size() == 0){
+//                        return;
+//                    }
+                    Log.e(TAG, "getPoetry: " + poetry.toString());
+                    savePoetry(poetry);
                 }
                 else {
                     mView.showWorksFail();
                 }
             }
         }).start();
+    }
+
+    @Override
+    public void savePoetry(PoetryBean poetry) {
+        poetryApi.savePoetry(poetry)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        Log.e(TAG, "onNext: " + s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mView.showWorksFail();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }

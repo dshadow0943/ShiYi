@@ -1,5 +1,6 @@
 package com.example.lsj.mvpdemo.api;
 
+import com.example.lsj.mvpdemo.bean.AuthorBean;
 import com.example.lsj.mvpdemo.bean.ClassificationItem;
 import com.example.lsj.mvpdemo.bean.PoetryBean;
 import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
@@ -45,6 +46,22 @@ public class PoetryApi {
 
     public Observable<PoetryBean> getPoetryById(String id){
         return poetryApiService.getPoetryById(id);
+    }
+
+    public Observable<String> savePoetry(PoetryBean poetry){
+        return poetryApiService.savePoetry(poetry);
+    }
+
+    public Observable<List<PoetryWorksBean>> getWorksBeanItem(){
+        return poetryApiService.getWorksBeanItem();
+    }
+
+    public Observable<List<AuthorBean>> getAuthorItem(){
+        return poetryApiService.getAuthorItem();
+    }
+
+    public Observable<List<PoetryWorksBean>> getPoetryByAuthorId(String id){
+        return poetryApiService.getPoetryByAuthorId(id);
     }
 
 }

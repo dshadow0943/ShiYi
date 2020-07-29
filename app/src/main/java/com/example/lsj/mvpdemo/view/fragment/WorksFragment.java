@@ -1,46 +1,76 @@
 package com.example.lsj.mvpdemo.view.fragment;
 
-import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
+import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvpdemo.adapter.CommonRecyclerHolder;
+import com.example.lsj.mvpdemo.adapter.PoetryWroksAdapter;
+import com.example.lsj.mvpdemo.base.BaseFragment;
+import com.example.lsj.mvpdemo.bean.PoetryBean;
+import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
+import com.example.lsj.mvpdemo.contract.WorksContract;
+import com.example.lsj.mvpdemo.presenter.WorksPresenter;
+import com.example.lsj.mvpdemo.utils.DataSet;
+import com.example.lsj.mvpdemo.view.activity.PoetryShowActivity;
+
+import java.util.List;
 
 
-public class WorksFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class WorksFragment extends BaseFragment<WorksPresenter> implements WorksContract.View, CommonRecyclerHolder.onClickCommonListener {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView works;
+    private PoetryWroksAdapter poetryWroksAdapter;
+    private List<PoetryWorksBean> worksBeans;
 
-    public WorksFragment() {
-        // Required empty public constructor
-    }
-
-    // TODO: Rename and change types and number of parameters
     public static WorksFragment newInstance() {
-        WorksFragment fragment = new WorksFragment();
-        return fragment;
+        return new WorksFragment();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    protected int getViewId() {
+        return R.layout.fragment_works_list;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_works_list, container, false);
+    protected void bindinLayout() {
+        works = view.findViewById(R.id.works);
+    }
+
+    @Override
+    protected WorksPresenter createPresenter() {
+        return new WorksPresenter();
+    }
+
+    @Override
+    protected void init() {
+        mPresenter.getWorks();
+    }
+
+    @Override
+    public void showWorksSuccess(List<PoetryWorksBean> poetrys) {
+        worksBeans = poetrys;
+        works.setLayoutManager(new LinearLayoutManager(getContext()));
+        poetryWroksAdapter = new PoetryWroksAdapter(getContext(), poetrys, R.layout.fragment_poetry_work, this);
+        works.setAdapter(poetryWroksAdapter);
+    }
+
+    @Override
+    public void getPoetrySuccess(PoetryBean poetry) {
+        DataSet.putObject("poetry", poetry);
+        startActivity(new Intent(getContext(), PoetryShowActivity.class));
+    }
+
+    @Override
+    public void onClickListener(View view, int position) {
+        mPresenter.getPoetry(worksBeans.get(position).getId());
+    }
+
+    @Override
+    public void onLongClickListener(View view, int position) {
+
     }
 }

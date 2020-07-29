@@ -7,4 +7,5 @@
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorSplitLine">#BAB3B3</color>
     <color name="colorSecondaryLine">#C4C4C4</color>
+    <color name="colorBlack">#000000</color>
 </resources>

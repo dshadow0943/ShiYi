@@ -18,7 +18,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ReptileTest {
@@ -122,6 +121,7 @@ public class ReptileTest {
 
         String dynasty = cont.getElementsByTag("p").get(0).getElementsByTag("a").get(0).text();
 //        Log.e(TAG, "run-dynasty2: " + dynasty);
+        dynasty = dynasty.replace("代", "");
         poetry.setDynasty(dynasty);
         poetry.getAuthor().setDynasty(dynasty);
 
@@ -144,8 +144,7 @@ public class ReptileTest {
         return poetry;
     }
 
-    private static PoetryBean getPoetryVerses(String id, String value) throws IOException {
-        Log.e(TAG, "getPoetryVerses: url=" + "https://so.gushiwen.cn/nocdn/ajaxshiwencont.aspx?id="+id+"&value="+value);
+    private static PoetryBean getPoetryVerses(String id, String value){
         PoetryBean poetry = new PoetryBean();
         AuthorBean author = new AuthorBean();
         List<VerseBean> verses = new ArrayList<>();
@@ -176,17 +175,17 @@ public class ReptileTest {
         }
 
         String docString = doc.toString().replace("<br>", "&&");
-        Log.e(TAG, "getPoetry-1: " + docString);
+//        Log.e(TAG, "getPoetry-1: " + docString);
         String pattern = "\\(.*?\\)";
         docString = docString.replaceAll(pattern, "");
-        Log.e(TAG, "getPoetry-2: " + docString);
+//        Log.e(TAG, "getPoetry-2: " + docString);
         doc = Jsoup.parseBodyFragment(docString);
 
         Elements ps = doc.select("p");
         for (int i = 0; i < ps.size()-2; i++) {
             List<CommentBean> comments = new ArrayList<>();
             String[] string = ps.get(i).text().split("&&");
-            Log.e(TAG, "getPoetry-str: " + Arrays.toString(string));
+//            Log.e(TAG, "getPoetry-str: " + Arrays.toString(string));
 
             if (string.length == 1){
                 AppreciationBean a = new AppreciationBean();
@@ -300,7 +299,7 @@ public class ReptileTest {
             e.printStackTrace();
         }
         assert document != null;
-        Log.e(TAG, "getPoetry: "+document.toString());
+//        Log.e(TAG, "getPoetry: "+document.toString());
 
         Elements fys = document.getElementsByClass("contyishang");
         if (fys == null || fys.size()==0){
@@ -312,7 +311,7 @@ public class ReptileTest {
         }
         else if (fys != null && fys.size()>0){
             String fanyi = fys.first().getElementsByTag("p").get(0).text();
-            Log.e(TAG, "run-fanyi: " + fanyi);
+//            Log.e(TAG, "run-fanyi: " + fanyi);
             String f = fanyi.replace("？", "。");
             String fa = f.replace("！", "。");
             String[] fanyis = fa.split("。");
@@ -324,7 +323,7 @@ public class ReptileTest {
             }
 
             String zhushi = fys.first().getElementsByTag("p").get(1).text();
-            Log.e(TAG, "run-zhushi: " + zhushi);
+//            Log.e(TAG, "run-zhushi: " + zhushi);
             String[] zhushis = zhushi.split("。");
             for (int i = 0; i < zhushis.length; i++) {
                 if (!zhushis[i].contains("：")){
@@ -363,7 +362,7 @@ public class ReptileTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.e(TAG, "getHtml: " + doc.toString());
+//        Log.e(TAG, "getHtml: " + doc.toString());
         return doc;
     }
 }

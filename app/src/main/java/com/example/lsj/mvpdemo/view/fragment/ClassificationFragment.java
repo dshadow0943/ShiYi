@@ -1,7 +1,6 @@
 package com.example.lsj.mvpdemo.view.fragment;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -23,7 +22,6 @@ import java.util.List;
 public class ClassificationFragment extends BaseFragment<ClassificationPresenter> implements CommonRecyclerHolder.onClickCommonListener, ClassificationContract.View {
 
     private RecyclerView recyclerView;
-    private List<ClassificationItem> cfts;
     ClassificationItemAdapter classificationItemAdapter;
 
     public static Fragment newInstance() {
@@ -48,7 +46,6 @@ public class ClassificationFragment extends BaseFragment<ClassificationPresenter
     @Override
     protected void init(){
         mPresenter.getClassificationItem();
-        Log.e("TAG", "init: ----");
     }
 
     @Override
@@ -73,7 +70,6 @@ public class ClassificationFragment extends BaseFragment<ClassificationPresenter
 
     @Override
     public void onLongClickListener(View view, int position) {
-        Toast.makeText(getContext(), "长按：" + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -86,6 +82,5 @@ public class ClassificationFragment extends BaseFragment<ClassificationPresenter
 
     @Override
     public void showClassificationFail(String errorMsg) {
-        Log.e("TAG", "showClassificationFail: "+ errorMsg);
     }
 }

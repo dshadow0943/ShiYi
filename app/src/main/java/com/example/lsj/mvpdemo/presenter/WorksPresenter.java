@@ -1,11 +1,9 @@
 package com.example.lsj.mvpdemo.presenter;
 
-import android.util.Log;
-
 import com.example.lsj.mvpdemo.base.BasePresenter;
-import com.example.lsj.mvpdemo.bean.AuthorBean;
+import com.example.lsj.mvpdemo.bean.PoetryBean;
 import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
-import com.example.lsj.mvpdemo.contract.AuthorContract;
+import com.example.lsj.mvpdemo.contract.WorksContract;
 
 import java.util.List;
 
@@ -14,38 +12,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class AuthorPresenter extends BasePresenter<AuthorContract.View> implements AuthorContract.Presenter {
-    @Override
-    public void getAuthors() {
-        poetryApi.getAuthorItem()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<AuthorBean>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(List<AuthorBean> authorBeans) {
-                        mView.getAuthorsSuccess(authorBeans);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e("Author", "onError: "+e.toString());
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
+public class WorksPresenter extends BasePresenter<WorksContract.View> implements WorksContract.Presenter {
 
     @Override
-    public void getPoetrys(String id) {
-        poetryApi.getPoetryByAuthorId(id)
+    public void getWorks() {
+        poetryApi.getWorksBeanItem()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<PoetryWorksBean>>() {
@@ -55,8 +26,8 @@ public class AuthorPresenter extends BasePresenter<AuthorContract.View> implemen
                     }
 
                     @Override
-                    public void onNext(List<PoetryWorksBean> poetryWorksBeans) {
-                        mView.getPoetrySuccess(poetryWorksBeans);
+                    public void onNext(List<PoetryWorksBean> poetrys) {
+                        mView.showWorksSuccess(poetrys);
                     }
 
                     @Override
@@ -71,4 +42,31 @@ public class AuthorPresenter extends BasePresenter<AuthorContract.View> implemen
                 });
     }
 
+    @Override
+    public void getPoetry(String id) {
+        poetryApi.getPoetryById(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<PoetryBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(PoetryBean poetryBean) {
+                        mView.getPoetrySuccess(poetryBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
 }

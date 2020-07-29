@@ -97,7 +97,12 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
     @Override
     protected void init() {
         poetryWorks = (PoetryWorksBean) DataSet.getObjectData("poetryWorks");
-        if (poetryWorks != null){
+        poetry = (PoetryBean) DataSet.getObjectData("poetry");
+        if (poetry != null){
+            config();
+            DataSet.removeObjectData("poetry");
+        }
+        else if (poetryWorks != null){
             DataSet.removeObjectData("poetryWorks");
             mPresenter.getPoetryItem(poetryWorks.getId());
         }else {

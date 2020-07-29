@@ -15,6 +15,8 @@ public interface PoetryShowContract {
         void getPoetryItem(String id);
 
         void getPoetry(String url);
+
+        void savePoetry(PoetryBean poetry);
     }
 
 }

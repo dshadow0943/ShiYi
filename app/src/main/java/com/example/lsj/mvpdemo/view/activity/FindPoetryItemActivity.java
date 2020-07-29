@@ -16,6 +16,7 @@ import com.example.lsj.mvpdemo.base.BaseActivity;
 import com.example.lsj.mvpdemo.bean.PoetryWorksBean;
 import com.example.lsj.mvpdemo.contract.FindPoetryItemContract;
 import com.example.lsj.mvpdemo.presenter.FindPoetryItemPresenter;
+import com.example.lsj.mvpdemo.utils.DataSet;
 
 import java.util.List;
 
@@ -53,18 +54,21 @@ public class FindPoetryItemActivity extends BaseActivity<FindPoetryItemPresenter
     protected void init() {
         Intent intent = getIntent();
         String value = intent.getStringExtra("find");
+        poetryItem = (List<PoetryWorksBean>) DataSet.getObjectData("poetrys");
         if (value != null){
             mPresenter.getPoetryItem(value);
+        }else if (poetryItem != null){
+            display();
         }
     }
 
     @Override
     public void getPoetryItemSuccess(List<PoetryWorksBean> poetryItem) {
         this.poetryItem = poetryItem;
-        config();
+        display();
     }
 
-    private void config(){
+    private void display(){
         final PoetryWroksAdapter poetryWroksAdapter = new PoetryWroksAdapter(this, poetryItem, R.layout.fragment_poetry_work, this);
         recyclerView.post(new Runnable() {
             @Override

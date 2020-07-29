@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/heme_textSize"
-                android:text="搜索结果如下："/>
+                android:text="查找结果如下："/>
 
 
             <androidx.recyclerview.widget.RecyclerView

@@ -10,6 +10,7 @@ public interface FindPoetryItemContract {
     interface View extends IView{
         void getPoetryItemSuccess(List<PoetryWorksBean> poetryItem);
 
+
         void getPoetryItemFail();
     }
 
