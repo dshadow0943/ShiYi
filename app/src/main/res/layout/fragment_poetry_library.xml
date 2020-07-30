@@ -21,14 +21,7 @@
             android:layout_marginLeft="@dimen/edge_margin"
             android:layout_marginStart="@dimen/edge_margin" />
 
-        <EditText
-            android:id="@+id/find_box"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:textSize="@dimen/heme_textSize"
-            android:maxLines="1"
-            android:layout_centerInParent="true"
-            android:visibility="gone"/>
+        <include layout="@layout/find_box"/>
 
         <com.flyco.tablayout.SegmentTabLayout
             android:id="@+id/poetry_tab"

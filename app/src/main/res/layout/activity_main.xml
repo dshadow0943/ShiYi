@@ -6,6 +6,6 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".view.MainActivity">
+    tools:context="com.example.lsj.mvp.view.MainActivity">
 
 </LinearLayout>

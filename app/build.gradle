@@ -50,5 +50,10 @@ dependencies {
     //爬虫
     implementation 'org.jsoup:jsoup:1.11.1'
 
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    //搜索框
 
 }

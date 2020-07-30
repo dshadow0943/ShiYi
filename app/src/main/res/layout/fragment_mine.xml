@@ -5,7 +5,7 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.MineFragment">
+    tools:context="com.example.lsj.mvp.view.fragment.MineFragment">
 
 
     <TextView

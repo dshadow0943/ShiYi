@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.fragment.PoetryWorksFragment">
+    tools:context="com.example.lsj.mvp.view.fragment.PoetryWorksFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/works"

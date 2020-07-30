@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.PoetryListActivity">
+    tools:context="com.example.lsj.mvp.view.activity.PoetryListActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,6 +29,8 @@
             android:textSize="@dimen/activityBar_textSize"
             android:text="@string/back_name"
             android:layout_toEndOf="@id/back_l" />
+
+        <include layout="@layout/find_box"/>
 
         <TextView
             android:id="@+id/more"
@@ -53,16 +56,12 @@
         android:id="@+id/split_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/splitLine_height"
-        android:layout_marginTop="@dimen/splitLine_margin"
         android:background="@color/colorSplitLine" />
-
-
 
     <RelativeLayout
         android:id="@+id/porty_list_rel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/split_line"
         android:layout_marginTop="@dimen/split_margin">
 
         <ImageView
@@ -95,8 +94,7 @@
                 android:id="@+id/p_list_synopsis"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:textSize="@dimen/synopsis_textSize"
-                android:text="简介"/>
+                android:textSize="@dimen/synopsis_textSize"/>
 
         </LinearLayout>
 
@@ -106,7 +104,6 @@
         android:id="@+id/split_line2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/splitLine_height"
-        android:layout_below="@id/porty_list_rel"
         android:background="@color/colorSecondaryLine" />
 
     <com.flyco.tablayout.CommonTabLayout
@@ -114,7 +111,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:tl_textsize="@dimen/heme_textSize"
-        android:layout_below="@id/porty_list_rel"
         app:tl_iconVisible="false"
         app:tl_divider_color="#000000"
         app:tl_underline_color="#000000"
@@ -126,13 +122,11 @@
         android:id="@+id/split_line3"
         android:layout_width="match_parent"
         android:layout_height="@dimen/splitLine_height"
-        android:layout_below="@id/poetry_list_tab"
         android:background="@color/colorSecondaryLine" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/poetry_list_vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/poetry_list_tab"/>
+        android:layout_height="match_parent"/>
 
-</RelativeLayout>
+</LinearLayout>
