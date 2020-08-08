@@ -2,7 +2,6 @@ package com.example.lsj.mvp.view.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -136,9 +135,13 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
         config();
     }
 
+    /**
+     * 对从爬虫得来的数据进行显示
+     * @param poetry2
+     */
     @Override
     public void showWorksSuccess2(final PoetryBean poetry2) {
-        Log.e("TAG", "showWorksSuccess2: "+poetry2.toString());
+//        LogUtil.e("TAG", new Gson().toJson(poetry2));
         this.poetry = poetry2;
         final PoetryShowsVerseAdapter verseAdapter = new PoetryShowsVerseAdapter(this, poetry2.getVerses(), R.layout.activity_poetry_show_verse, this);
 //        final PoetryShowsVerseAdapter classicAdapter = new PoetryShowsVerseAdapter(this, poetry.getClassics(), R.layout.activity_poetry_show_classic, this);
@@ -150,6 +153,9 @@ public class PoetryShowActivity extends BaseActivity<PoetryShowPresenter> implem
                 recyclerViewVerse.setAdapter(verseAdapter);
                 changeText(0);
                 authorSummaryText.setText(poetry2.getAuthor().getSummary());
+                if (poetry.getClassics() == null || poetry.getClassics().size() == 0){
+                    findViewById(R.id.poetry_classics_title).setVisibility(View.GONE);
+                }
 //                classicRecyclerView.setAdapter(classicAdapter);
             }
         });

@@ -60,8 +60,7 @@
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/edge_margin"
-            android:background="@color/colorBackground"
-            android:src="@android:drawable/ic_menu_search"
+            android:src="@mipmap/ic_search"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/edge_margin" />

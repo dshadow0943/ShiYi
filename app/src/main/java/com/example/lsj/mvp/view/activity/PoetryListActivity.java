@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.lsj.mvp.adapter.PoetryListPagerAdapter;
+import com.example.lsj.mvp.api.Api;
 import com.example.lsj.mvp.base.BaseActivity;
 import com.example.lsj.mvp.bean.PoetryListTabEntityBean;
 import com.example.lsj.mvp.bean.PoetryType;
@@ -85,9 +86,9 @@ public class PoetryListActivity extends BaseActivity<PoetryListPresenter> implem
         }
         name.setText(poetryType.getName());
         Glide.with(this)
-                .load(poetryType.getImgUrl())
-                .apply(RequestOptions.bitmapTransform(new CircleCrop()))
+                .load(Api.API+"img/ic_default.jpg")
                 .error(R.mipmap.ic_default)
+                .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(img);
 
         initLayout();

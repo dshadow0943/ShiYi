@@ -16,8 +16,10 @@ import com.example.lsj.mvp.bean.PoetryWorksBean;
 import com.example.lsj.mvp.contract.PoetryWorksContract;
 import com.example.lsj.mvp.presenter.PoetryWorksPresenter;
 import com.example.lsj.mvp.utils.DataSet;
+import com.example.lsj.mvp.utils.LogUtil;
 import com.example.lsj.mvp.view.activity.PoetryShowActivity;
 import com.example.lsj.mvpdemo.R;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -73,6 +75,8 @@ public class PoetryWorksFragment extends BaseFragment<PoetryWorksPresenter> impl
     @Override
     public void getPoetrySuccess(PoetryBean poetry) {
         DataSet.putObject("poetry", poetry);
+        LogUtil.e("TAG", new Gson().toJson(poetry));
+//        Log.e("TAG", "getPoetrySuccess: " + new Gson().toJson(poetry));
         startActivity(new Intent(getContext(), PoetryShowActivity.class));
     }
 

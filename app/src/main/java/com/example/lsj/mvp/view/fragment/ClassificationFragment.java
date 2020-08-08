@@ -65,7 +65,7 @@ public class ClassificationFragment extends BaseFragment<ClassificationPresenter
             case -1 :
 
                 break;
-            case R.id.cft_more :
+            case R.id.arrow_right:
                 Toast.makeText(getContext(), "点击更多：" + position, Toast.LENGTH_SHORT).show();
                 break;
             default:    break;

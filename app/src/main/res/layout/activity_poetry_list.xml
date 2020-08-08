@@ -87,7 +87,7 @@
                 android:id="@+id/p_list_name"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:textSize="@dimen/title_textSize"
+                android:textSize="24sp"
                 android:text="分类名" />
 
             <TextView

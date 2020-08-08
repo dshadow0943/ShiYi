@@ -63,10 +63,9 @@ public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> 
                 }
                 if (poetry != null){
                     mView.showWorksSuccess2(poetry);
-//                    if (poetry.getComments().size() == 0 || poetry.getAppreciations().size() == 0){
-//                        return;
-//                    }
-                    Log.e(TAG, "getPoetry: " + poetry.toString());
+                    if (poetry.getComments().size() == 0 || poetry.getAppreciations().size() == 0){
+                        return;
+                    }
                     savePoetry(poetry);
                 }
                 else {

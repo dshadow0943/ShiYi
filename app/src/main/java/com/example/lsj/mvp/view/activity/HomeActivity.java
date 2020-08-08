@@ -58,7 +58,7 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
         fragments.add(ClassicVerseFragment.newInstance());
         fragments.add(PlatformFragment.newInstance());
         fragments.add(PoetryLibraryFragment.newInstance());
-        fragments.add(MineFragment.newInstance("", ""));
+        fragments.add(MineFragment.newInstance());
         navigationBar.titleItems(tabText) //必传  Tab文字集合
                 .normalIconItems(normalIcon) //必传  Tab未选中图标集合
                 .selectIconItems(selectIcon) //必传  Tab选中图标集合

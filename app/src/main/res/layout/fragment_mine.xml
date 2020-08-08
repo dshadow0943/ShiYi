@@ -2,15 +2,144 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.lsj.mvp.view.fragment.MineFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activityBar_height"
+        android:layout_marginRight="@dimen/edge_margin"
+        android:layout_marginLeft="@dimen/edge_margin">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow_left"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我"
+            android:textColor="#A82016"
+            android:textSize="22sp"
+            />
+
+        <ImageView
+            android:id="@+id/mine_site"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/ic_site"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/split_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/splitLine_height"
+        android:background="@color/colorSplitLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="我的" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/edge_margin"
+        android:layout_marginRight="@dimen/edge_margin"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/mine_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+
+        <TextView
+            android:id="@+id/mine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/mine_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/mine_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/mine_attention_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="- -"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/mine_attention"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="关注"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorSplitLine" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/mine_fans_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="- -"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/mine_fans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="粉丝"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>
