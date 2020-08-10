@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    边距-->
+    <!--    边距-->
     <dimen name="edge_margin">20dp</dimen>
 
     <dimen name="splitLine_margin">50dp</dimen>
     <dimen name="split_margin">10dp</dimen>
 
-<!--    -->
+    <!--    -->
     <dimen name="activityBar_height">40dp</dimen>
 
     <dimen name="splitLine_height">1dp</dimen>
-    
-    
+
+
     <dimen name="activityBar_textSize">16sp</dimen>
-<!--    主题字体大小-->
+    <!--    主题字体大小-->
     <dimen name="heme_textSize">14sp</dimen>
-<!--    标题字体大小-->
+    <!--    标题字体大小-->
     <dimen name="title_textSize">16sp</dimen>
     <dimen name="synopsis_textSize">14sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

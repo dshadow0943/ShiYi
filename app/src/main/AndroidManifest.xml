@@ -14,7 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name="com.example.lsj.mvp.view.activity.SiteActivity"></activity>
+        <activity android:name="com.example.lsj.mvp.view.activity.LoginActivity"></activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name="com.example.lsj.mvp.view.activity.UpdateDataActivity" />
+        <activity android:name="com.example.lsj.mvp.view.activity.AccountSettingActivity" />
+        <activity android:name="com.example.lsj.mvp.view.activity.SiteActivity" />
         <activity android:name="com.example.lsj.mvp.view.activity.FindPoetryItemActivity" />
         <activity android:name="com.example.lsj.mvp.view.activity.PoetryShowActivity" />
         <activity android:name="com.example.lsj.mvp.view.activity.PoetryListActivity" />

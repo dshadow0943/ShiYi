@@ -6,8 +6,17 @@ public class MineBean {
     private String name = "影";
     private String id = "000001";
     private String info = "羁鸟恋旧林 池鱼思故渊";
+    private String age = "男";
     private int attentionNum = 0;
     private int fansNum = 0;
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
 
     public String getAvatarUrl() {
         return avatarUrl;
