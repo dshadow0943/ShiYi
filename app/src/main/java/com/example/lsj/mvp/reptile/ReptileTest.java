@@ -24,40 +24,67 @@ public class ReptileTest {
 
     private final static String TAG = "ReptileTest";
 
+    /**
+     * 获取诗词列表
+     * @param value
+     * @return
+     */
     public static List<PoetryWorksBean> getPoetryItem(final String value){
         List<PoetryWorksBean> reptileItems = new ArrayList<>();
-        Document doc = getDocument(value);
-        Elements els = doc.select("div.cont");
-        for (Element el : els){
-            PoetryWorksBean reptileItem = new PoetryWorksBean();
-            Elements p = el.select("p");
-            if (p.size() < 2){
-                continue;
+
+        for (int i = 1; i < 4; i++) {
+            Document doc = getDocument(value, String.valueOf(i));
+            if (doc == null){
+                return null;
             }
-            String title = p.first().text();
 
+            Elements elements = doc.select("div.main3").first().select("div.left");
 
-            String url = p.get(0).getElementsByTag("a").attr("href");
+            if (elements == null){
+                return null;
+            }
 
-            String author = p.get(1).getElementsByTag("a").get(0).text();
+            Elements els = elements.first().select("div.sons");
+            if (els == null){
+                return null;
+            }
+            for (Element el : els){
+                PoetryWorksBean reptileItem = new PoetryWorksBean();
+                Elements p = el.selectFirst("div.cont").select("p");
+                if (p.size() < 2){
+                    continue;
+                }
+                String title = p.first().text();
 
-            String dynasty = p.get(1).getElementsByTag("a").get(1).text();
+                String url = p.get(0).getElementsByTag("a").attr("href");
 
-            String text = el.getElementsByClass("contson").first().text();
-            String v = text.replace("？", "。");
-            String ve = v.replace("！", "。");
-            String verse = ve.split("。")[0];
+                String author = p.get(1).getElementsByTag("a").get(0).text();
 
-            reptileItem.setName(title);
-            reptileItem.setAuthorName(author);
-            reptileItem.setDynasty(dynasty);
-            reptileItem.setUrl(url);
-            reptileItem.setVerse(verse+"。");
-            reptileItems.add(reptileItem);
+                String dynasty = p.get(1).getElementsByTag("a").get(1).text();
+
+                String text = el.getElementsByClass("contson").first().text();
+                String v = text.replace("？", "。");
+                String ve = v.replace("！", "。");
+                String verse = ve.split("。")[0];
+
+                reptileItem.setName(title);
+                reptileItem.setAuthorName(author);
+                reptileItem.setDynasty(dynasty);
+                reptileItem.setUrl(url);
+                reptileItem.setVerse(verse+"。");
+                reptileItems.add(reptileItem);
+            }
         }
+
+
         return reptileItems;
     }
 
+    /**
+     * 获取作者信息
+     * @param url
+     * @return
+     */
     public static String getAuthorSummary(String url){
 //        Log.e(TAG, "getAuthorSummary: "+ Api.GUSHIWEN +url);
         Document doc = null;
@@ -75,13 +102,19 @@ public class ReptileTest {
 
         assert doc != null;
         String summary = doc.getElementsByClass("main3").first().getElementsByClass("cont").get(0).getElementsByTag("p").first().text();
-//        Log.e(TAG, "run-summary: " + summary);
+        Log.e(TAG, "run-summary: " + summary);
         return summary;
     }
 
-    public static PoetryBean getPoetry2(String url) throws IOException {
+    /**
+     * 获取诗词信息
+     * @param url
+     * @return
+     * @throws IOException
+     */
+    public static PoetryBean getPoetry(String url) throws IOException {
         PoetryBean poetry;
-        Log.e(TAG, "getPoetry2: "+ Api.GUSHIWEN +url);
+//        Log.e(TAG, "getPoetry2: "+ Api.GUSHIWEN +url);
         Document poetryDoc = null;
         try {
             Connection con = Jsoup
@@ -144,6 +177,12 @@ public class ReptileTest {
         return poetry;
     }
 
+    /**
+     * 获取诗句数据
+     * @param id
+     * @param value
+     * @return
+     */
     private static PoetryBean getPoetryVerses(String id, String value){
         PoetryBean poetry = new PoetryBean();
         AuthorBean author = new AuthorBean();
@@ -159,12 +198,6 @@ public class ReptileTest {
 
         Document doc = null;
         try {
-//            Connection con = Jsoup
-//                    .connect("https://so.gushiwen.cn/nocdn/ajaxshiwencont.aspx?id="+id+"&value="+value);// 获取连接
-//            con.header("User-Agent",
-//                    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0");// 配置模拟浏览器
-//            Connection.Response rs = con.execute();// 获取响应
-//            doc = Jsoup.parse(rs.body());// 转换为Dom树
             doc = Jsoup.connect("https://so.gushiwen.cn/nocdn/ajaxshiwencont.aspx?id="+id+"&value="+value).cookie("login", "false").get();
         } catch (IOException e) {
             e.printStackTrace();
@@ -340,10 +373,11 @@ public class ReptileTest {
         return poetry;
     }
 
-    private static Document getDocument(String value){
+    private static Document getDocument(String value, String page){
         Document doc = null;
         try {
             doc = Jsoup.connect(Api.GUSHIWEN+"search.aspx/")
+                    .data("page", page)
                     .data("value", value)
                     .userAgent("Mozilla")
                     .cookie("auth", "token")
@@ -352,17 +386,6 @@ public class ReptileTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return doc;
-    }
-
-    public static Document getHtml(String url, String value, String key){
-        Document doc = null;
-        try {
-            doc = Jsoup.connect(url).get();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-//        Log.e(TAG, "getHtml: " + doc.toString());
         return doc;
     }
 }

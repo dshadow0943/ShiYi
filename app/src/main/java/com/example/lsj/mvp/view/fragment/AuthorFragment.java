@@ -69,11 +69,15 @@ public class AuthorFragment extends BaseFragment<AuthorPresenter> implements Aut
     public void getAuthorsSuccess(List<AuthorBean> authors) {
         this.authors = authors;
         display();
+        //根据作者名批量爬取数据
+        for (AuthorBean a: authors){
+//            new ReptileTestSave().getPoetryItem(a.getName());
+        }
     }
 
     @Override
     public void getPoetrysSuccess(List<PoetryWorksBean> poetrys) {
-        PoetryType poetryType = new PoetryType(author.getName(), "111", author.getSummary());
+        PoetryType poetryType = new PoetryType(author.getName(), "img/ic_default.jpg", author.getSummary());
         poetryType.setPoetrys(poetrys);
         DataSet.putObject("poetryType", poetryType);
         startActivity(new Intent(getContext(), PoetryListActivity.class));

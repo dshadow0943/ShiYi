@@ -1,5 +1,6 @@
 package com.example.lsj.mvp.view.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,8 +60,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             case R.id.login_log:
                 break;
             case R.id.login_register:
-                break;
             case R.id.login_register_top:
+                startActivity(new Intent(this, RegisterActivity.class));
+                finish();
                 break;
             case R.id.back:
                 finish();

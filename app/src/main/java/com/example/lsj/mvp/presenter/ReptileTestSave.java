@@ -5,51 +5,38 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.lsj.mvp.base.BasePresenter;
+import com.example.lsj.mvp.api.PoetryApi;
 import com.example.lsj.mvp.bean.PoetryBean;
-import com.example.lsj.mvp.contract.PoetryShowContract;
+import com.example.lsj.mvp.bean.PoetryWorksBean;
 import com.example.lsj.mvp.reptile.ReptileTest;
 
 import java.io.IOException;
+import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> implements PoetryShowContract.presenter {
+public class ReptileTestSave {
 
-    private static final String TAG = "PoetryShowPresenter";
-
-    @Override
-    public void getPoetryItem(String id) {
-        poetryApi.getPoetryById(id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<PoetryBean>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
+    public void getPoetryItem(final String value) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<PoetryWorksBean> poetryItem = ReptileTest.getPoetryItem(value);
+                if (poetryItem != null){
+                    for (PoetryWorksBean w : poetryItem){
+                        getPoetry(w.getUrl());
                     }
+                }
+                else {
 
-                    @Override
-                    public void onNext(PoetryBean poetryBean) {
-                        mView.showWorksSuccess(poetryBean);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+                }
+            }
+        }).start();
     }
 
-    @Override
     public void getPoetry(final String url) {
         new Thread(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -62,22 +49,21 @@ public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> 
                     e.printStackTrace();
                 }
                 if (poetry != null){
-                    mView.showWorksSuccess2(poetry);
+
                     if (poetry.getComments().size() == 0 || poetry.getAppreciations().size() == 0){
                         return;
                     }
                     savePoetry(poetry);
                 }
                 else {
-                    mView.showWorksFail();
+
                 }
             }
         }).start();
     }
 
-    @Override
     public void savePoetry(PoetryBean poetry) {
-        poetryApi.savePoetry(poetry)
+        new PoetryApi().savePoetry(poetry)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
@@ -88,12 +74,12 @@ public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> 
 
                     @Override
                     public void onNext(String s) {
-                        Log.e(TAG, "onNext: " + s);
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        mView.showWorksFail();
+                        Log.e("TAG", "onError: "+e.toString());
                     }
 
                     @Override
@@ -102,4 +88,5 @@ public class PoetryShowPresenter extends BasePresenter<PoetryShowContract.View> 
                     }
                 });
     }
+
 }
