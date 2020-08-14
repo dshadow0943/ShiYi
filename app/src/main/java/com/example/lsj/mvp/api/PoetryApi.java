@@ -4,6 +4,7 @@ import com.example.lsj.mvp.bean.AuthorBean;
 import com.example.lsj.mvp.bean.PoetryBean;
 import com.example.lsj.mvp.bean.PoetryWorksBean;
 import com.example.lsj.mvp.bean.ClassificationItem;
+import com.example.lsj.mvp.bean.UserBean;
 import com.example.lsj.mvp.bean.VerseBean;
 import com.example.lsj.mvp.utils.RetrofitUtil;
 
@@ -62,6 +63,22 @@ public class PoetryApi {
 
     public Observable<List<PoetryWorksBean>> getPoetryByAuthorId(String id){
         return poetryApiService.getPoetryByAuthorId(id);
+    }
+
+    public Observable<String> updateUser(String type, String value, String id){
+        return poetryApiService.updateUser(type, value, id);
+    }
+
+    public Observable<UserBean> getUserDateById(String id){
+        return poetryApiService.getUserDateById(id);
+    }
+
+    public Observable<UserBean> getUserDateByPhone(String id){
+        return poetryApiService.getUserDateByPhone(id);
+    }
+
+    public Observable<String> registerUser(UserBean user){
+        return poetryApiService.registerUser(user);
     }
 
 }

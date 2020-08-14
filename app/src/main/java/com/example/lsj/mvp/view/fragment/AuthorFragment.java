@@ -49,7 +49,7 @@ public class AuthorFragment extends BaseFragment<AuthorPresenter> implements Aut
     }
 
     @Override
-    protected void init() {
+    public void init() {
         Log.e("Author", "init: ");
         mPresenter.getAuthors();
     }

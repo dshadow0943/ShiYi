@@ -16,9 +16,10 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.lsj.mvp.api.Api;
 import com.example.lsj.mvp.base.BaseFragment;
-import com.example.lsj.mvp.bean.MineBean;
+import com.example.lsj.mvp.bean.UserBean;
 import com.example.lsj.mvp.contract.MineContract;
 import com.example.lsj.mvp.presenter.MinePresenter;
+import com.example.lsj.mvp.utils.DataSet;
 import com.example.lsj.mvp.view.activity.SiteActivity;
 import com.example.lsj.mvpdemo.R;
 
@@ -26,7 +27,7 @@ import java.util.Objects;
 
 public class MineFragment extends BaseFragment<MinePresenter> implements MineContract.View, View.OnClickListener {
 
-    private MineBean mineBean = new MineBean();
+    private UserBean user;
 
     private ImageView iAvatar;
     private ImageView iSite;
@@ -55,9 +56,6 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
         tAttentionNum = view.findViewById(R.id.mine_attention_num);
         tFansNum = view.findViewById(R.id.mine_fans_num);
 
-        iSite.setOnClickListener(this);
-
-        display();
     }
 
     @Override
@@ -65,23 +63,30 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
         return new MinePresenter();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
-    protected void init() {
+    public void init() {
+        iSite.setOnClickListener(this);
 
+        user = DataSet.getUser();
+        if (user == null){
+            user = new UserBean();
+        }
+        display();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void display(){
         Glide.with(this)
-                .load(Api.API+mineBean.getAvatarUrl())
+                .load(Api.API+ user.getAvatarUrl())
                 .error(R.mipmap.ic_default)
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(iAvatar);
-        tName.setText(mineBean.getName());
-        tId.setText("ID: " + mineBean.getId());
-        tInfo.setText(mineBean.getInfo());
-        tAttentionNum.setText(String.valueOf(mineBean.getAttentionNum()));
-        tFansNum.setText(String.valueOf(mineBean.getFansNum()));
+        tName.setText(user.getName());
+        tId.setText("ID: " + user.getId());
+        tInfo.setText(user.getInfo());
+        tAttentionNum.setText(String.valueOf(user.getAttentionNum()));
+        tFansNum.setText(String.valueOf(user.getFansNum()));
 
 
         WindowManager wm = (WindowManager) Objects.requireNonNull(getActivity())
@@ -99,7 +104,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.mine_site:
-                startActivity(new Intent(getContext(), SiteActivity.class));
+                startActivityForResult(new Intent(getContext(), SiteActivity.class), 1);
                 break;
 
             default:

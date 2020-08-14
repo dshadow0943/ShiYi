@@ -1,9 +1,10 @@
 package com.example.lsj.mvp.api;
 
 import com.example.lsj.mvp.bean.AuthorBean;
+import com.example.lsj.mvp.bean.ClassificationItem;
 import com.example.lsj.mvp.bean.PoetryBean;
 import com.example.lsj.mvp.bean.PoetryWorksBean;
-import com.example.lsj.mvp.bean.ClassificationItem;
+import com.example.lsj.mvp.bean.UserBean;
 import com.example.lsj.mvp.bean.VerseBean;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface PoetryApiService {
@@ -40,5 +42,17 @@ public interface PoetryApiService {
 
     @POST("poetry/save")
     Observable<String> savePoetry(@Body PoetryBean poetryBean);
+
+    @POST("user/update/{type}")
+    Observable<String> updateUser(@Path("type") String type, @Query("value") String value, @Query("id") String id);
+
+    @POST("user/seek/id")
+    Observable<UserBean> getUserDateById(@Query("id") String id);
+
+    @POST("user/seek/phone")
+    Observable<UserBean> getUserDateByPhone(@Query("id") String id);
+
+    @POST("user/save")
+    Observable<String> registerUser(@Body UserBean user);
 
 }

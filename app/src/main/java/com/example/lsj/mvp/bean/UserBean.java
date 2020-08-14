@@ -1,14 +1,16 @@
 package com.example.lsj.mvp.bean;
 
-public class MineBean {
+public class UserBean {
 
     private String avatarUrl = "img/ic_default.jpg";
-    private String name = "影";
-    private String id = "000001";
+    private String name = "游客";
+    private String phone;
+    private String id = "156131";
     private String info = "羁鸟恋旧林 池鱼思故渊";
     private String age = "男";
     private int attentionNum = 0;
     private int fansNum = 0;
+    private String pwd;
 
     public String getAge() {
         return age;
@@ -64,5 +66,21 @@ public class MineBean {
 
     public void setFansNum(int fansNum) {
         this.fansNum = fansNum;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 }

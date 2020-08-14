@@ -46,7 +46,7 @@ public class WorksFragment extends BaseFragment<WorksPresenter> implements Works
     }
 
     @Override
-    protected void init() {
+    public void init() {
         mPresenter.getWorks();
     }
 

@@ -16,9 +16,26 @@ public class ClassicVerseVAdapter extends CommonRecyclerAdapter<String> {
     }
 
     @Override
+    public int getItemCount() {
+        if (dataList.size() > 6){
+            return 6;
+        }
+        return dataList.size();
+    }
+
+    @Override
     public void onBindViewHolder(CommonRecyclerHolder holder, int position) {
         super.onBindViewHolder(holder, position);
-        holder.setText(R.id.verse_v, dataList.get(dataList.size()-1-position));
+        String str = dataList.get(getItemCount()-1-position).replaceAll(" {4}", "");
+
+        if (position > 5){
+            return;
+        }
+
+        if ((getItemCount()-1-position)%2 == 1){
+            str = "  丨丨"+str;
+        }
+        holder.setText(R.id.verse_v, str);
     }
 
     @Override

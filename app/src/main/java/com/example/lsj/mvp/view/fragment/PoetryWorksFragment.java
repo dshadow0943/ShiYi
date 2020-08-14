@@ -49,7 +49,7 @@ public class PoetryWorksFragment extends BaseFragment<PoetryWorksPresenter> impl
     }
 
     @Override
-    protected void init() {
+    public void init() {
         PoetryType poetryType = (PoetryType) DataSet.getObjectData("poetryType");
         if (poetryType == null){
             return;

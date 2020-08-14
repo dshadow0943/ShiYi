@@ -43,7 +43,7 @@ public abstract class BaseFragment<T extends IPresenter> extends Fragment implem
 
 //    public abstract Fragment newInstance();
 
-    protected abstract void init();
+    public abstract void init();
 
     public void setOnclik(Class aClass) {
 

@@ -49,7 +49,7 @@ public class ClassificationFragment extends BaseFragment<ClassificationPresenter
     }
 
     @Override
-    protected void init(){
+    public void init(){
         mPresenter.getClassificationItem();
     }
 

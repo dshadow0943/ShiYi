@@ -7,10 +7,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lsj.mvp.base.BaseActivity;
+import com.example.lsj.mvp.bean.UserBean;
 import com.example.lsj.mvp.contract.LoginContract;
 import com.example.lsj.mvp.presenter.LoginPresenter;
+import com.example.lsj.mvp.utils.DataSet;
 import com.example.lsj.mvpdemo.R;
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View, View.OnClickListener {
@@ -54,21 +57,61 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     }
 
+    private void login(){
+
+        String phone = ePhone.getText().toString();
+        if (phone.equals("") || phone.length() != 11 || !phone.startsWith("1")){
+            Toast.makeText(this, "请输入正确的手机号码", Toast.LENGTH_LONG).show();
+            return;
+        }
+        String pwd = ePwd.getText().toString();
+        if (pwd.equals("") || pwd.length() < 6){
+            Toast.makeText(this, "密码长度不得小于6位", Toast.LENGTH_LONG).show();
+            return;
+        }
+        mPresenter.loginUser(phone, pwd);
+    }
+
     @Override
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.login_log:
+                login();
                 break;
             case R.id.login_register:
             case R.id.login_register_top:
                 startActivity(new Intent(this, RegisterActivity.class));
-                finish();
+//                finish();
                 break;
             case R.id.back:
                 finish();
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    public void loginSuccess(UserBean user) {
+        DataSet.setUser(user);
+        Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show();
+        finish();
+    }
+
+    @Override
+    public void loginFail(UserBean user) {
+        if (user == null || user.getId() == null){
+            Toast.makeText(this, "登录失败，该账号尚未注册", Toast.LENGTH_LONG).show();
+            ePwd.setText("");
+            return;
+        }else if (!user.getPwd().equals(ePwd.getText().toString())){
+            Toast.makeText(this, "登录失败，密码错误", Toast.LENGTH_LONG).show();
+            ePwd.setText("");
+            return;
+        }else {
+            Toast.makeText(this, "登录失败，请输入正确的", Toast.LENGTH_LONG).show();
+            ePhone.setText("");
+            ePwd.setText("");
         }
     }
 }

@@ -81,7 +81,7 @@ public class PoetryLibraryFragment extends BaseFragment implements View.OnClickL
     }
 
     @Override
-    protected void init() {
+    public void init() {
         configViews();
 
     }

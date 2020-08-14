@@ -1,5 +1,7 @@
 package com.example.lsj.mvp.utils;
 
+import com.example.lsj.mvp.bean.UserBean;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +10,8 @@ public class DataSet {
     private static Map<String, Integer> integerMap = new HashMap<>();
     private static Map<String, String> stringMap = new HashMap<>();
     private static Map<String, Object> objectsMap = new HashMap<>();
+
+    private static UserBean user;
 
     public static void putIntData(String label, int data){
         integerMap.put(label, data);
@@ -45,9 +49,11 @@ public class DataSet {
         objectsMap.remove(label);
     }
 
+    public static UserBean getUser() {
+        return user;
+    }
 
-
-
-
-
+    public static void setUser(UserBean user) {
+        DataSet.user = user;
+    }
 }

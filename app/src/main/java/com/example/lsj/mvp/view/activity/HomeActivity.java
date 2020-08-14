@@ -1,13 +1,17 @@
 package com.example.lsj.mvp.view.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import com.example.lsj.mvpdemo.R;
 import com.example.lsj.mvp.base.BaseActivity;
 import com.example.lsj.mvp.contract.HomeContract;
 import com.example.lsj.mvp.presenter.HomePresenter;
@@ -15,6 +19,7 @@ import com.example.lsj.mvp.view.fragment.ClassicVerseFragment;
 import com.example.lsj.mvp.view.fragment.MineFragment;
 import com.example.lsj.mvp.view.fragment.PlatformFragment;
 import com.example.lsj.mvp.view.fragment.PoetryLibraryFragment;
+import com.example.lsj.mvpdemo.R;
 import com.next.easynavigation.constant.Anim;
 import com.next.easynavigation.view.EasyNavigationBar;
 
@@ -24,6 +29,8 @@ import java.util.List;
 public class HomeActivity extends BaseActivity<HomePresenter> implements HomeContract.View {
 
     private EasyNavigationBar navigationBar;
+
+    private MineFragment mineFragment;
 
     private String[] tabText = new String[]{"鉴赏", "论坛", "词库", "我的"};
     //未选中icon
@@ -58,7 +65,8 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
         fragments.add(ClassicVerseFragment.newInstance());
         fragments.add(PlatformFragment.newInstance());
         fragments.add(PoetryLibraryFragment.newInstance());
-        fragments.add(MineFragment.newInstance());
+        mineFragment = MineFragment.newInstance();
+        fragments.add(mineFragment);
         navigationBar.titleItems(tabText) //必传  Tab文字集合
                 .normalIconItems(normalIcon) //必传  Tab未选中图标集合
                 .selectIconItems(selectIcon) //必传  Tab选中图标集合
@@ -98,4 +106,13 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mineFragment.init();
+
+    }
+
 }

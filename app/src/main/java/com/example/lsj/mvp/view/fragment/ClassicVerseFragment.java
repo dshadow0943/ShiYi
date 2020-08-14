@@ -70,7 +70,7 @@ public class ClassicVerseFragment extends BaseFragment<ClassicVersePresenter> im
     }
 
     @Override
-    protected void init() {
+    public void init() {
         mPresenter.getVerse();
     }
 

@@ -4,6 +4,8 @@ public class Api {
 
     public final static String API = "http://47.103.223.223:8080/shiyi/";
 
+//    public final static String API = "http://192.168.0.103:8080/shiyi/";
+
     public final static String GUSHIWEN = "https://so.gushiwen.cn/";
 
 }

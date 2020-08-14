@@ -69,7 +69,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/colorTheme"
             android:layout_gravity="center"
             android:gravity="center">
 
@@ -100,7 +99,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/colorTheme"
             android:layout_gravity="center"
             android:gravity="center">
 
@@ -130,7 +128,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/colorTheme"
             android:layout_gravity="center"
             android:gravity="center">
 
@@ -142,12 +139,14 @@
                 android:textSize="18sp"
                 android:text="性别：" />
 
-            <EditText
+            <TextView
                 android:id="@+id/register_age"
                 android:layout_width="0dp"
                 android:layout_weight="5"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:background="@color/colorBackground"
+                android:textSize="18sp"
                 android:hint="填写性别"/>
         </LinearLayout>
 
@@ -160,7 +159,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/colorTheme"
             android:layout_gravity="center"
             android:gravity="center">
 
@@ -191,7 +189,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/colorTheme"
             android:layout_gravity="center"
             android:gravity="center">
 
@@ -222,8 +219,8 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/colorTheme"
             android:layout_gravity="center"
+            android:visibility="gone"
             android:gravity="center">
 
             <TextView

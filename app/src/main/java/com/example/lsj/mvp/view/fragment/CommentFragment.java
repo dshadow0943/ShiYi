@@ -30,7 +30,7 @@ public class CommentFragment extends BaseFragment<CommentPredenter> implements C
     }
 
     @Override
-    protected void init() {
+    public void init() {
         mPresenter.getCommentItem();
     }
 
