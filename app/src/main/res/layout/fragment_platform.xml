@@ -2,21 +2,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/item_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/edge_margin"
-        android:text="论坛"
-        android:textAppearance="?attr/textAppearanceListItem" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activityBar_height"
+        android:layout_marginLeft="@dimen/edge_margin"
+        android:layout_marginRight="@dimen/edge_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/plat_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/activityBar_textSize"
+            android:textColor="#A82016"
+            android:text="发帖"/>
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/plat_tab"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+
+            app:tl_bar_stroke_color="@color/colorTheme"
+            app:tl_bar_stroke_width="2dp"
+            app:tl_bar_color="@color/colorBackground"
+
+            app:tl_divider_width="2dp"
+
+            app:tl_indicator_color="@color/colorTheme"
+
+            app:tl_textSelectColor="@color/colorBackground"
+            app:tl_textUnselectColor="@color/colorTheme"
+            app:tl_textsize="@dimen/heme_textSize"/>
+
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/edge_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:id="@+id/split_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/splitLine_height"
+        android:background="@color/colorSplitLine" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/plat_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </LinearLayout>

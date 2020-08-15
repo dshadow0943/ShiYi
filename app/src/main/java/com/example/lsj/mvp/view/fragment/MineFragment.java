@@ -78,7 +78,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void display(){
         Glide.with(this)
-                .load(Api.API+ user.getAvatarUrl())
+                .load(Api.API+ user.getAvatar())
                 .error(R.mipmap.ic_default)
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(iAvatar);

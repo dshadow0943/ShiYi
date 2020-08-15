@@ -31,6 +31,7 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
     private EasyNavigationBar navigationBar;
 
     private MineFragment mineFragment;
+    private PlatformFragment platformFragment;
 
     private String[] tabText = new String[]{"鉴赏", "论坛", "词库", "我的"};
     //未选中icon
@@ -63,7 +64,8 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
 
     public void configViews() {
         fragments.add(ClassicVerseFragment.newInstance());
-        fragments.add(PlatformFragment.newInstance());
+        platformFragment = PlatformFragment.newInstance();
+        fragments.add(platformFragment);
         fragments.add(PoetryLibraryFragment.newInstance());
         mineFragment = MineFragment.newInstance();
         fragments.add(mineFragment);
@@ -111,7 +113,10 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.e("TAG", "Home: request:" + requestCode + " result:" + resultCode);
+
         mineFragment.init();
+        platformFragment.init();
 
     }
 

@@ -1,9 +1,10 @@
 package com.example.lsj.mvp.api;
 
 import com.example.lsj.mvp.bean.AuthorBean;
+import com.example.lsj.mvp.bean.ClassificationItem;
+import com.example.lsj.mvp.bean.DynamicBean;
 import com.example.lsj.mvp.bean.PoetryBean;
 import com.example.lsj.mvp.bean.PoetryWorksBean;
-import com.example.lsj.mvp.bean.ClassificationItem;
 import com.example.lsj.mvp.bean.UserBean;
 import com.example.lsj.mvp.bean.VerseBean;
 import com.example.lsj.mvp.utils.RetrofitUtil;
@@ -81,4 +82,11 @@ public class PoetryApi {
         return poetryApiService.registerUser(user);
     }
 
+    public Observable<List<DynamicBean>> getDynamicAll(){
+        return poetryApiService.getDynamicAll();
+    }
+
+    public  Observable<String> submitDynamic(DynamicBean dynamic){
+        return poetryApiService.submitDynamic(dynamic);
+    }
 }

@@ -68,7 +68,7 @@ public class AccountSettingActivity extends BaseActivity<AccountSettingPresenter
 
     private void display(){
         Glide.with(this)
-                .load(Api.API+ user.getAvatarUrl())
+                .load(Api.API+ user.getAvatar())
                 .error(R.mipmap.ic_default)
                 .into(iAvatar);
         tName.setText(user.getName());
@@ -117,6 +117,7 @@ public class AccountSettingActivity extends BaseActivity<AccountSettingPresenter
                 startActivityForResult(intent, 1);
                 break;
             case R.id.account_change_password:
+                Toast.makeText(this, "该功能暂未开放", Toast.LENGTH_LONG).show();
                 break;
             case R.id.back:
                 finish();

@@ -2,7 +2,7 @@ package com.example.lsj.mvp.bean;
 
 public class UserBean {
 
-    private String avatarUrl = "img/ic_default.jpg";
+    private String avatar = "img/ic_default.jpg";
     private String name = "游客";
     private String phone;
     private String id = "156131";
@@ -20,12 +20,12 @@ public class UserBean {
         this.age = age;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getName() {

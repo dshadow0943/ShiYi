@@ -2,6 +2,7 @@ package com.example.lsj.mvp.api;
 
 import com.example.lsj.mvp.bean.AuthorBean;
 import com.example.lsj.mvp.bean.ClassificationItem;
+import com.example.lsj.mvp.bean.DynamicBean;
 import com.example.lsj.mvp.bean.PoetryBean;
 import com.example.lsj.mvp.bean.PoetryWorksBean;
 import com.example.lsj.mvp.bean.UserBean;
@@ -54,5 +55,11 @@ public interface PoetryApiService {
 
     @POST("user/save")
     Observable<String> registerUser(@Body UserBean user);
+
+    @GET("dynamic/show")
+    Observable<List<DynamicBean>> getDynamicAll();
+
+    @POST("dynamic/save")
+    Observable<String> submitDynamic(@Body DynamicBean dynamic);
 
 }
