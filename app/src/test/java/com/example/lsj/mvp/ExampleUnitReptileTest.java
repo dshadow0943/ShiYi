@@ -1,4 +1,4 @@
-package com.example.lsj.mvpdemo;
+package com.example.lsj.mvp;
 
 import org.junit.Test;
 

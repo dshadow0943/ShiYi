@@ -12,7 +12,7 @@ import com.example.lsj.mvp.base.BaseFragment;
 import com.example.lsj.mvp.contract.ClassificationContract;
 import com.example.lsj.mvp.presenter.ClassificationPresenter;
 import com.example.lsj.mvp.view.activity.PoetryListActivity;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 import com.example.lsj.mvp.adapter.ClassificationItemAdapter;
 import com.example.lsj.mvp.adapter.CommonRecyclerHolder;
 import com.example.lsj.mvp.bean.ClassificationBean;

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.lsj.mvpdemo">
+    package="com.example.lsj.mvp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,12 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name="com.example.lsj.mvp.view.activity.PublishDynamicActivity"></activity>
+        <activity android:name="com.example.lsj.mvp.view.activity.PublishDynamicActivity"/>
         <activity android:name="com.example.lsj.mvp.view.activity.RegisterActivity" />
         <activity android:name="com.example.lsj.mvp.view.activity.LoginActivity" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
         <activity android:name="com.example.lsj.mvp.view.activity.UpdateDataActivity" />
         <activity android:name="com.example.lsj.mvp.view.activity.AccountSettingActivity" />
         <activity android:name="com.example.lsj.mvp.view.activity.SiteActivity" />
@@ -34,6 +32,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.lsj.mvp.accountsetting.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
     </application>
 
 </manifest>

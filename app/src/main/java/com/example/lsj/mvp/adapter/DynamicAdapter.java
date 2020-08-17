@@ -13,7 +13,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.lsj.mvp.api.Api;
 import com.example.lsj.mvp.bean.DynamicBean;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 import java.util.Date;
 import java.util.List;

@@ -22,7 +22,7 @@ import com.example.lsj.mvp.presenter.PoetryShowPresenter;
 import com.example.lsj.mvp.utils.DataSet;
 import com.example.lsj.mvp.utils.Jump;
 import com.example.lsj.mvp.utils.SpaceItemDecorationUtil;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 import java.util.ArrayList;
 import java.util.List;

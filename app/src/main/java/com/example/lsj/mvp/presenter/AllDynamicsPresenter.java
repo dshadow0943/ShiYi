@@ -42,4 +42,34 @@ public class AllDynamicsPresenter extends BasePresenter<AllDynamicsContract.View
                     }
                 });
     }
+
+    @Override
+    public void getDynamicByUser(String id) {
+        poetryApi.getDynamicByUser(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<DynamicBean>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<DynamicBean> dynamicBeans) {
+                        if (dynamicBeans != null){
+                            mView.getDynamicSuccess(dynamicBeans);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
 }

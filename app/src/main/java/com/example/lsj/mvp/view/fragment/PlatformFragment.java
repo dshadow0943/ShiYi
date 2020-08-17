@@ -14,7 +14,7 @@ import com.example.lsj.mvp.contract.PlatformContract;
 import com.example.lsj.mvp.presenter.PlatformPresenter;
 import com.example.lsj.mvp.utils.DataSet;
 import com.example.lsj.mvp.view.activity.PublishDynamicActivity;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 
@@ -59,8 +59,8 @@ public class PlatformFragment extends BaseFragment<PlatformPresenter> implements
         configViews();
     }
 
-    public void configViews() {
-        fragments.add(AllDynamicsFragment.newInstance());
+    private void configViews() {
+        fragments.add(AllDynamicsFragment.newInstance(0));
         fragments.add(FollowedDynamicsFragment.newInstance());
 
         mTab.setTabData(tabText);

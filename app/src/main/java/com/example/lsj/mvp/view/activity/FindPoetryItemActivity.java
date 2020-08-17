@@ -16,7 +16,7 @@ import com.example.lsj.mvp.bean.PoetryWorksBean;
 import com.example.lsj.mvp.contract.FindPoetryItemContract;
 import com.example.lsj.mvp.presenter.FindPoetryItemPresenter;
 import com.example.lsj.mvp.utils.Jump;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 import java.util.List;
 

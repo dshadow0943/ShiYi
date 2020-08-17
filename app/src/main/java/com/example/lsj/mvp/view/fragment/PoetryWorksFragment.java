@@ -18,7 +18,7 @@ import com.example.lsj.mvp.presenter.PoetryWorksPresenter;
 import com.example.lsj.mvp.utils.DataSet;
 import com.example.lsj.mvp.utils.LogUtil;
 import com.example.lsj.mvp.view.activity.PoetryShowActivity;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 import com.google.gson.Gson;
 
 import java.util.List;

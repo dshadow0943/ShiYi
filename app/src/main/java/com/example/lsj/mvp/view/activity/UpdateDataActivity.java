@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.lsj.mvp.base.BaseActivity;
 import com.example.lsj.mvp.contract.UpdateDataContract;
 import com.example.lsj.mvp.presenter.UpdateDataPresenter;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 public class UpdateDataActivity extends BaseActivity<UpdateDataPresenter> implements UpdateDataContract.View, View.OnClickListener {
 
@@ -59,6 +59,8 @@ public class UpdateDataActivity extends BaseActivity<UpdateDataPresenter> implem
         }
         if (field.equals("age")){
             showAgeDialog();
+        }else if (field.equals("pwd")){
+            data.setHint("输入新密码");
         }
     }
 

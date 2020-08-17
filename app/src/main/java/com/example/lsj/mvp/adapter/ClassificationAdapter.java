@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.lsj.mvp.api.Api;
 import com.example.lsj.mvp.bean.ClassificationBean;
 import com.example.lsj.mvp.view.fragment.ClassificationFragment;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 import java.util.List;
 

@@ -17,7 +17,7 @@ import com.example.lsj.mvp.contract.ClassicVerseContract;
 import com.example.lsj.mvp.presenter.ClassicVersePresenter;
 import com.example.lsj.mvp.utils.Jump;
 import com.example.lsj.mvp.view.activity.FindPoetryItemActivity;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 import java.util.List;
 

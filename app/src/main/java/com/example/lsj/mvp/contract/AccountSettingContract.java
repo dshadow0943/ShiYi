@@ -11,6 +11,7 @@ public interface AccountSettingContract {
 
     interface Presenter{
         void getUserData(String id);
+        void uploadAvatar(String url);
     }
 
 }

@@ -15,7 +15,7 @@ import com.example.lsj.mvp.contract.WorksContract;
 import com.example.lsj.mvp.presenter.WorksPresenter;
 import com.example.lsj.mvp.utils.DataSet;
 import com.example.lsj.mvp.view.activity.PoetryShowActivity;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 import java.util.List;
 

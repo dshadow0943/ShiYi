@@ -1,7 +1,7 @@
 package com.example.lsj.mvp.view.fragment;
 
 import com.example.lsj.mvp.base.BaseFragment;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 import com.example.lsj.mvp.bean.ClassificationItem;
 import com.example.lsj.mvp.contract.CommentContract;
 import com.example.lsj.mvp.presenter.CommentPredenter;

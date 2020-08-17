@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 
 import com.example.lsj.mvp.base.BaseActivity;
 import com.example.lsj.mvp.presenter.IPresenter;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 public class SiteActivity extends BaseActivity implements View.OnClickListener {
 

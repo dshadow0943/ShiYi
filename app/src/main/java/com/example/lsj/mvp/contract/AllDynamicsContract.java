@@ -13,6 +13,7 @@ public interface AllDynamicsContract {
 
     interface Presenter{
         void getDynamicAll();
+        void getDynamicByUser(String id);
     }
 
 }

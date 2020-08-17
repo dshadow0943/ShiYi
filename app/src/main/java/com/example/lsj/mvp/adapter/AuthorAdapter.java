@@ -3,7 +3,7 @@ package com.example.lsj.mvp.adapter;
 import android.content.Context;
 
 import com.example.lsj.mvp.bean.AuthorBean;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 import java.util.List;
 

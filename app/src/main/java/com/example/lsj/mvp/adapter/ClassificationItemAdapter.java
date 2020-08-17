@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lsj.mvp.bean.ClassificationItem;
 import com.example.lsj.mvp.view.fragment.ClassificationFragment;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 import java.util.List;
 

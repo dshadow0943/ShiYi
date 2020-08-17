@@ -20,7 +20,7 @@ import com.example.lsj.mvp.presenter.PoetryListPresenter;
 import com.example.lsj.mvp.utils.DataSet;
 import com.example.lsj.mvp.utils.Jump;
 import com.example.lsj.mvp.view.fragment.PoetryWorksFragment;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;

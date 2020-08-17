@@ -12,7 +12,7 @@ import com.example.lsj.mvp.bean.UserBean;
 import com.example.lsj.mvp.contract.PublishDynamicContract;
 import com.example.lsj.mvp.presenter.PublishDynamicPresenter;
 import com.example.lsj.mvp.utils.DataSet;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 public class PublishDynamicActivity extends BaseActivity<PublishDynamicPresenter> implements PublishDynamicContract.View, View.OnClickListener {
 
@@ -65,7 +65,6 @@ public class PublishDynamicActivity extends BaseActivity<PublishDynamicPresenter
         dynamic.setUserId(user.getId());
         dynamic.setContext(text);
         mPresenter.submitDynamic(dynamic);
-        finish();
     }
 
     @Override
@@ -83,5 +82,6 @@ public class PublishDynamicActivity extends BaseActivity<PublishDynamicPresenter
     @Override
     public void publishSuccess() {
         Toast.makeText(this, "提交成功", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }

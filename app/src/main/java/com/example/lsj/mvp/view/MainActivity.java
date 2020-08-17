@@ -7,7 +7,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lsj.mvp.view.activity.HomeActivity;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.lsj.mvp.view.fragment.AllDynamicsFragment">
 
+    <TextView
+        android:id="@+id/dynamic_show_null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dynamic_all"
         android:layout_width="match_parent"

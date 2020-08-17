@@ -12,6 +12,8 @@ import com.example.lsj.mvp.utils.RetrofitUtil;
 import java.util.List;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -88,5 +90,13 @@ public class PoetryApi {
 
     public  Observable<String> submitDynamic(DynamicBean dynamic){
         return poetryApiService.submitDynamic(dynamic);
+    }
+
+    public Observable<List<DynamicBean>> getDynamicByUser(String id){
+        return poetryApiService.getDynamicByUser(id);
+    }
+
+    public Observable<String> uploadAvatar(RequestBody description, MultipartBody.Part file){
+        return poetryApiService.uploadAvatar(description, file);
     }
 }

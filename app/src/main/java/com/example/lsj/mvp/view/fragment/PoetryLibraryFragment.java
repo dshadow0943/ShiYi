@@ -12,7 +12,7 @@ import com.example.lsj.mvp.adapter.PoetryLibraryPagerApapter;
 import com.example.lsj.mvp.base.BaseFragment;
 import com.example.lsj.mvp.presenter.IPresenter;
 import com.example.lsj.mvp.utils.Jump;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.next.easynavigation.view.EasyNavigationBar;

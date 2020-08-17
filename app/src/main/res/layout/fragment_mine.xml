@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -80,7 +81,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -108,9 +109,9 @@
             </LinearLayout>
 
             <TextView
-                android:layout_width="2dp"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="@color/colorSplitLine" />
+                android:background="@color/colorTheme" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -140,8 +141,27 @@
 
     </LinearLayout>
 
+    <com.flyco.tablayout.SegmentTabLayout
+        android:id="@+id/mine_tab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
 
+        app:tl_bar_stroke_color="@null"
+        app:tl_bar_stroke_width="2dp"
+        app:tl_bar_color="@color/colorBackground"
 
+        app:tl_divider_width="2dp"
 
+        app:tl_indicator_color="#A82016"
+
+        app:tl_textSelectColor="@color/colorBackground"
+        app:tl_textUnselectColor="#A82016"
+        app:tl_textsize="@dimen/heme_textSize"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mine_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

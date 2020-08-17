@@ -14,7 +14,7 @@ import com.example.lsj.mvp.bean.UserBean;
 import com.example.lsj.mvp.contract.LoginContract;
 import com.example.lsj.mvp.presenter.LoginPresenter;
 import com.example.lsj.mvp.utils.DataSet;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View, View.OnClickListener {
 

@@ -13,7 +13,7 @@ import com.example.lsj.mvp.base.BaseActivity;
 import com.example.lsj.mvp.bean.UserBean;
 import com.example.lsj.mvp.contract.RegisterContract;
 import com.example.lsj.mvp.presenter.RegisterPresenter;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 public class RegisterActivity extends BaseActivity<RegisterPresenter> implements RegisterContract.View, View.OnClickListener {
 

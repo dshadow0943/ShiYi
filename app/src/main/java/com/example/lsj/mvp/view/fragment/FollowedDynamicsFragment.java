@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 
 public class FollowedDynamicsFragment extends Fragment {
 

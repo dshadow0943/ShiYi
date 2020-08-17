@@ -19,7 +19,7 @@ import com.example.lsj.mvp.view.fragment.ClassicVerseFragment;
 import com.example.lsj.mvp.view.fragment.MineFragment;
 import com.example.lsj.mvp.view.fragment.PlatformFragment;
 import com.example.lsj.mvp.view.fragment.PoetryLibraryFragment;
-import com.example.lsj.mvpdemo.R;
+import com.example.lsj.mvp.R;
 import com.next.easynavigation.constant.Anim;
 import com.next.easynavigation.view.EasyNavigationBar;
 
